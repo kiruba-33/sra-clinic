@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --forest-green: #214B38;
+  --forest-deep: #18382A;
+  --forest-light: #2C5E47;
+  --sage-green: #A9B9A3;
+  --warm-ivory: #F7F6F0;
+  --ivory-dark: #ECE9DF;
+  --ivory-soft: #FDFCFA;
+  --muted-gold: #B69A58;
+  --gold-light: #CEB67C;
+  --dark-charcoal: #252923;
+  --charcoal-soft: #3C4139;
+  --charcoal-muted: #595F54;
+  --pure-white: #FFFFFF;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color: var(--dark-charcoal);
+    background-color: var(--warm-ivory);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--dark-charcoal);
+    line-height: 1.75;
+    background-color: var(--warm-ivory);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-editorial, .font-heading {
+    font-family: 'Lora', Georgia, 'Times New Roman', serif;
+    letter-spacing: -0.015em;
+  }
+
+  /* Accessibility focus ring */
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+    outline: 2px solid var(--forest-green);
+    outline-offset: 3px;
+  }
+
+  /* Prevent automatic iOS Safari zoom on focus by ensuring at least 16px font-size on mobile inputs */
+  @media screen and (max-width: 640px) {
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+  }
+}
+
+@layer utilities {
+  .editorial-rule {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(182, 154, 88, 0.4) 0%, rgba(33, 75, 56, 0.15) 50%, rgba(182, 154, 88, 0.05) 100%);
+  }
+
+  .editorial-hairline {
+    border-color: rgba(37, 41, 35, 0.12);
+  }
+
+  .gold-hairline {
+    border-color: rgba(182, 154, 88, 0.35);
+  }
+}
+
+/* Touch device handling: disable persistent hover state */
+@media (hover: none) {
+  .group:hover .group-hover\:scale-105,
+  .group:hover .group-hover\:scale-\[1\.02\],
+  .hover\:scale-105:hover,
+  .hover\:scale-\[1\.02\]:hover {
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
