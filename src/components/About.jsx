@@ -1,112 +1,102 @@
 import React from 'react';
 import sraLogo from '../assets/sra-logo.jpg';
+import aboutImg from '../assets/editorial/clinic-therapy.jpg';
 
 export default function About() {
   return (
     <section
       id="about"
-      className="py-24 md:py-36 bg-ivory relative"
+      className="py-20 md:py-28 bg-ivory border-b border-charcoal/10 scroll-mt-20 md:scroll-mt-24"
       aria-label="About Sri Rama Acupuncture Clinic"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-12 sm:mb-16 md:mb-24">
-          <div className="inline-flex items-center gap-3 mb-4">
+        <div className="max-w-2xl mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2.5 mb-3.5">
             <span className="w-6 h-[1.5px] bg-gold" aria-hidden="true" />
-            <p className="text-xs uppercase tracking-editorial font-medium text-forest">
+            <p className="text-[11px] sm:text-xs uppercase tracking-editorial font-medium text-forest">
               ESTABLISHED FEBRUARY 2012
             </p>
           </div>
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-forest-deep font-medium leading-[1.25]">
-            Grounded in traditional roots, serving the community with dignity and care.
+            Grounded in traditional roots, serving Chinnamanur with care.
           </h2>
         </div>
 
-        {/* Asymmetrical Editorial Composition */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-16 items-start">
+        {/* Editorial Layout: Story & Verified Facts */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Narrative Panel (7 columns) */}
-          <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-charcoal-soft font-normal text-base sm:text-lg leading-relaxed min-w-0">
-            <p className="font-serif text-lg sm:text-xl text-forest leading-relaxed italic font-medium">
-              "Providing an unhurried, patient-focused environment where traditional methods meet everyday health concerns."
+          {/* Narrative & Emblem (7 columns) */}
+          <div className="lg:col-span-7 space-y-6 text-charcoal-soft font-normal text-sm sm:text-base leading-relaxed min-w-0">
+            <p className="font-serif text-base sm:text-lg text-forest leading-relaxed italic font-medium">
+              "An unhurried, patient-centered setting where classical methods meet everyday wellness needs."
             </p>
             <p>
-              Sri Rama Acupuncture Clinic was established on 5 February 2012 at Agraharam in Chinnamanur. Over the years, the clinic has developed a reputation throughout Theni district as a reliable, honest destination for traditional therapy and wellness guidance.
+              Founded on 5 February 2012 at Agraharam in Chinnamanur, Sri Rama Acupuncture Clinic provides accessible traditional acupuncture, Varma, and Thokkanam therapy for individuals across Theni district.
             </p>
             <p>
-              Rather than adopting quick-fix claims, our practice honors the timeless philosophies of classical acupuncture, Varma marma points, and traditional Thokkanam body manipulation. Every consultation is conducted with thorough attention to your individual state of balance, discomfort levels, and daily routine.
+              Drawing upon 15 years of client-provided practice experience in natural healthcare, our focus remains on thorough, individualized consultations that respect natural balance without relying on synthetic medication.
             </p>
 
-            {/* Emblem Featurette */}
-            <div className="pt-6 border-t border-charcoal/10 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
+            {/* Emblem Badge */}
+            <div className="pt-4 flex items-center gap-4 border-t border-charcoal/10">
               <img
                 src={sraLogo}
                 alt="Official seal of Sri Rama Acupuncture Clinic"
-                className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border border-gold/40 flex-shrink-0"
-                width="64"
-                height="64"
+                className="w-12 h-12 rounded-full border border-gold/40 flex-shrink-0"
+                width="48"
+                height="48"
               />
-              <div className="text-xs text-charcoal-muted leading-relaxed">
-                <span className="font-serif text-sm text-forest font-semibold block">
-                  Sri Rama Acupuncture Clinic Emblem
+              <div className="text-xs text-charcoal-muted leading-tight">
+                <span className="font-serif text-sm text-forest font-semibold block mb-0.5">
+                  Sri Rama Acupuncture Clinic
                 </span>
-                Reflecting the bow of focus, the healing caduceus needle, and traditional medicinal foliage.
+                Motto: <span className="italic font-serif text-forest">"Yes to health, No to drugs"</span>
               </div>
             </div>
           </div>
 
-          {/* Right Fact Ledger Panel (5 columns) */}
-          <div className="lg:col-span-5 border-l border-gold/30 pl-4 sm:pl-8 lg:pl-12 space-y-8 sm:space-y-10 min-w-0">
-            
-            <div className="space-y-2">
-              <span className="text-[11px] uppercase tracking-editorial text-gold font-medium block">
-                Official Inception
-              </span>
-              <p className="font-serif text-xl sm:text-2xl text-forest-deep font-semibold">
-                5 February 2012
-              </p>
-              <p className="text-sm text-charcoal-muted leading-relaxed">
-                Founded in Chinnamanur as a dedicated traditional healthcare practice.
-              </p>
+          {/* Photograph & Key Facts Card (5 columns) */}
+          <div className="lg:col-span-5 space-y-6 w-full">
+            <div className="relative aspect-[4/3] overflow-hidden border border-gold/30 bg-pure-white shadow-sm">
+              <img
+                src={aboutImg}
+                alt="Herbal preparations and classical care setting at Sri Rama Acupuncture Clinic"
+                className="w-full h-full object-cover"
+                loading="lazy"
+                width="500"
+                height="375"
+              />
             </div>
 
-            <div className="space-y-2 pt-6 border-t border-charcoal/10">
-              <span className="text-[11px] uppercase tracking-editorial text-gold font-medium block">
-                Practice Experience
-              </span>
-              <p className="font-serif text-xl sm:text-2xl text-forest-deep font-semibold">
-                15 Years of Experience
-              </p>
-              <p className="text-sm text-charcoal-muted leading-relaxed">
-                Client-provided traditional therapy and holistic wellness practice.
-              </p>
+            {/* Verified Fact Ribbon */}
+            <div className="grid grid-cols-3 gap-3 p-4 bg-pure-white border border-charcoal/10 text-center">
+              <div>
+                <span className="text-[10px] uppercase tracking-eyebrow text-gold font-medium block">
+                  Founded
+                </span>
+                <p className="font-serif text-sm sm:text-base text-forest-deep font-semibold mt-0.5">
+                  Feb 2012
+                </p>
+              </div>
+              <div className="border-x border-charcoal/10 px-2">
+                <span className="text-[10px] uppercase tracking-eyebrow text-gold font-medium block">
+                  Experience
+                </span>
+                <p className="font-serif text-sm sm:text-base text-forest-deep font-semibold mt-0.5">
+                  15 Years
+                </p>
+              </div>
+              <div>
+                <span className="text-[10px] uppercase tracking-eyebrow text-gold font-medium block">
+                  Location
+                </span>
+                <p className="font-serif text-sm sm:text-base text-forest-deep font-semibold mt-0.5">
+                  Chinnamanur
+                </p>
+              </div>
             </div>
-
-            <div className="space-y-2 pt-6 border-t border-charcoal/10">
-              <span className="text-[11px] uppercase tracking-editorial text-gold font-medium block">
-                Location & Region
-              </span>
-              <p className="font-serif text-xl sm:text-2xl text-forest-deep font-semibold">
-                Chinnamanur, Theni District
-              </p>
-              <p className="text-sm text-charcoal-muted leading-relaxed">
-                Located at 109, Agraharam, Chinnamanur 625515, Tamil Nadu.
-              </p>
-            </div>
-
-            <div className="space-y-2 pt-6 border-t border-charcoal/10">
-              <span className="text-[11px] uppercase tracking-editorial text-gold font-medium block">
-                Core Therapy Range
-              </span>
-              <p className="font-serif text-xl sm:text-2xl text-forest-deep font-semibold">
-                Classical & Natural
-              </p>
-              <p className="text-sm text-charcoal-muted leading-relaxed">
-                Acupuncture, Varma point work, Thokkanam massage, and magnetic therapy.
-              </p>
-            </div>
-
           </div>
 
         </div>

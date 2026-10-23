@@ -27,16 +27,18 @@ export default function Navbar() {
 
   const navLinks = [
     { label: 'Home', href: '#hero' },
-    { label: 'About', href: '#about' },
-    { label: 'Treatments', href: '#treatments' },
+    { label: 'Doctor', href: '#doctor' },
+    { label: 'Services', href: '#services' },
     { label: 'Products', href: '#products' },
-    { label: 'Why Visit', href: '#why-visit' },
+    { label: 'About', href: '#about' },
+    { label: 'Testimonials', href: '#testimonials' },
+    { label: 'Gallery', href: '#gallery' },
     { label: 'Contact', href: '#contact' },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
           ? 'bg-ivory/95 backdrop-blur-md border-b border-charcoal/10 shadow-[0_4px_20px_-10px_rgba(33,75,56,0.08)]'
           : 'bg-ivory/90 border-b border-charcoal/5'
@@ -47,7 +49,7 @@ export default function Navbar() {
           {/* Clinic Brand & Logo */}
           <a
             href="#hero"
-            className="flex items-center gap-2.5 sm:gap-3.5 group focus:outline-none min-w-0"
+            className="flex items-center gap-2.5 sm:gap-3.5 group focus:outline-none flex-shrink-0 min-w-0"
             aria-label="Sri Rama Acupuncture Clinic - Home"
           >
             <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex-shrink-0 rounded-full overflow-hidden border border-gold/40 shadow-sm transition-transform duration-300 group-hover:scale-105">
@@ -60,7 +62,7 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col min-w-0">
-              <span className="font-serif text-sm sm:text-lg md:text-xl font-semibold text-forest tracking-tight leading-tight group-hover:text-forest-deep transition-colors truncate">
+              <span className="font-serif text-sm sm:text-base lg:text-lg xl:text-xl font-semibold text-forest tracking-tight leading-tight group-hover:text-forest-deep transition-colors whitespace-nowrap">
                 Sri Rama Acupuncture Clinic
               </span>
               <span className="text-[10px] sm:text-[11px] uppercase tracking-wider sm:tracking-editorial text-charcoal-muted font-sans font-medium truncate">
@@ -70,12 +72,12 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7 xl:gap-8 flex-shrink-0" aria-label="Main Navigation">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 flex-shrink-0" aria-label="Main Navigation">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-charcoal/80 hover:text-forest transition-colors tracking-wide py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-forest hover:after:w-full after:transition-all after:duration-300"
+                className="text-xs xl:text-sm font-medium text-charcoal/80 hover:text-forest transition-colors tracking-wide py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-forest hover:after:w-full after:transition-all after:duration-300"
               >
                 {link.label}
               </a>
@@ -83,7 +85,7 @@ export default function Navbar() {
           </nav>
 
           {/* Action CTA & Phone (Tablet & Desktop) */}
-          <div className="hidden sm:flex items-center gap-3 md:gap-5 flex-shrink-0">
+          <div className="hidden sm:flex items-center gap-3 md:gap-4 flex-shrink-0">
             <a
               href="tel:9942611444"
               className="text-xs font-medium text-charcoal-soft hover:text-forest tracking-wide flex items-center gap-1.5 transition-colors py-2 px-1 whitespace-nowrap min-h-[44px]"
@@ -109,8 +111,8 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-charcoal hover:text-forest transition-colors focus:outline-none focus:ring-2 focus:ring-forest"
               aria-expanded={mobileMenuOpen}
-              aria-controls="mobile-navigation-drawer"
-              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-controls="mobile-top-drawer"
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             >
               {mobileMenuOpen ? (
                 <FiX className="w-6 h-6" aria-hidden="true" />
@@ -122,10 +124,10 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Navigation Drawer */}
+      {/* Mobile Top Navigation Drawer */}
       {mobileMenuOpen && (
         <div
-          id="mobile-navigation-drawer"
+          id="mobile-top-drawer"
           className="lg:hidden bg-ivory border-b border-charcoal/10 px-4 sm:px-6 pt-3 pb-6 transition-all duration-300 shadow-lg"
         >
           <nav className="flex flex-col space-y-1" aria-label="Mobile Navigation">
@@ -134,15 +136,15 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-sans font-medium text-charcoal hover:text-forest transition-colors py-3 border-b border-charcoal/5 min-h-[44px] flex items-center"
+                className="text-sm font-sans font-medium text-charcoal hover:text-forest transition-colors py-2.5 border-b border-charcoal/5 min-h-[44px] flex items-center"
               >
                 {link.label}
               </a>
             ))}
-            <div className="pt-4 flex flex-col gap-3">
+            <div className="pt-4 flex flex-col gap-2.5">
               <a
                 href="tel:9942611444"
-                className="flex items-center justify-center gap-2 text-sm text-forest font-medium py-3 border border-forest/30 min-h-[44px]"
+                className="flex items-center justify-center gap-2 text-sm text-forest font-medium py-2.5 border border-forest/30 min-h-[44px]"
               >
                 <FiPhone aria-hidden="true" />
                 <span>Call: 99426 11444</span>
@@ -150,7 +152,7 @@ export default function Navbar() {
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 bg-forest text-ivory text-xs uppercase tracking-eyebrow font-medium py-3.5 text-center min-h-[44px]"
+                className="flex items-center justify-center gap-2 bg-forest text-ivory text-xs uppercase tracking-eyebrow font-medium py-3 text-center min-h-[44px]"
               >
                 <span>Book an Appointment</span>
                 <FiArrowUpRight className="text-gold" aria-hidden="true" />

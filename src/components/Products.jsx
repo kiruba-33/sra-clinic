@@ -15,66 +15,66 @@ export default function Products({ onSelectProduct }) {
   const products = [
     {
       name: 'Full Body Relaxation Massager',
-      category: 'In-Clinic Equipment · Deep Relaxation',
+      category: 'In-Clinic Equipment',
       description:
-        'Comprehensive multi-zone relaxation chair available at the clinic for deep muscular decompression, circulation ease, and quiet restorative sessions.',
+        'Multi-zone relaxation chair available at the clinic for gentle muscular decompression and quiet restorative sessions.',
       image: chairImg,
       badge: 'Available at Clinic',
     },
     {
       name: 'Magic Roller ACS Body Massager',
-      category: 'Client Category · Muscular & Joint Care',
+      category: 'Acupressure Rolling Unit',
       description:
-        'Contoured acupressure rolling device fitted with flexible handle cords and rotating nodules, suited for neck, back, thigh, and knee comfort.',
+        'Contoured roller with flexible handle cords and rotating nodules suited for back, neck, and thigh comfort.',
       image: magicRollerImg,
     },
     {
-      name: '5-in-1 Acupressure Twister Device',
-      category: 'Client Category · Core Balance & Reflex',
+      name: '5-in-1 Acupressure Twister Disc',
+      category: 'Balance & Reflex Platform',
       description:
-        'Rotating circular disc with textured foot pyramids and embedded magnetic nodes for standing balance exercises and plantar stimulation.',
+        'Rotating disc with textured foot pyramids and embedded nodes for standing balance exercises and foot stimulation.',
       image: twisterImg,
     },
     {
       name: 'Acupressure Reflexology Slipper',
-      category: 'Client Category · Foot Reflex & Stress Relief',
+      category: 'Foot Reflexology Wear',
       description:
-        'Footwear lined with spring-loaded acupressure nodules positioned to gently stimulate key reflexology points during brief indoor walking.',
+        'Indoor footwear lined with spring-loaded acupressure nodules to gently stimulate key reflexology points during walking.',
       image: slipperImg,
     },
     {
       name: 'Multi-Piece Acupressure Wellness Kit',
-      category: 'Client Category · Home Reflex Support',
+      category: 'Home Reflexology Set',
       description:
-        'Set comprising an acupressure foot mat, wooden handle rollers, spiked therapy ball, and finger rings for routine point stimulation at home.',
+        'Complete collection including an acupressure foot mat, wooden rollers, and therapy ball for routine point care.',
       image: kitImg,
     },
     {
       name: '12-Ball Targeted Massager',
-      category: 'Client Category · Multi-Part Massage',
+      category: 'Localized Massage Tool',
       description:
-        'Ergonomically shaped massage unit with dual handle grips and rotating spheres designed for targeted back, waist, shoulder, and leg comfort.',
+        'Ergonomic massage unit with dual grips and rotating spheres designed for targeted back, waist, and shoulder ease.',
       image: massager12Img,
     },
     {
       name: 'Cooling Gel Eye Mask',
-      category: 'Client Category · Rest & Deep Sleep Support',
+      category: 'Eye Rest & Thermal Care',
       description:
-        'Comfort-shaped gel pack for cold or ambient temperature use, created to soothe eye strain from prolonged screen use and promote restful sleep.',
+        'Contoured gel pack usable chilled or at ambient temperature to soothe routine eye strain from prolonged screen use.',
       image: eyeMaskImg,
     },
     {
-      name: 'Hot & Cold Facial Gel Mask',
-      category: 'Client Category · Stress Relief & Thermal Care',
+      name: 'Hot & Cold Facial Mask',
+      category: 'Thermal Facial Compress',
       description:
-        'Full-face thermal mask that can be gently chilled or warmed to relieve facial tightness, headache heaviness, and ambient discomfort.',
+        'Full-face thermal mask that can be chilled or warmed to provide soothing comfort across the face and forehead.',
       image: faceMaskImg,
     },
     {
       name: 'Thermal Abdomen Gel Pack',
-      category: 'Client Category · Abdominal & Muscular Ease',
+      category: 'Reusable Hot & Cold Compress',
       description:
-        'Reusable medium and large sized gel compress adaptable for hot or cold therapy across abdomen, lower back, and joint muscle areas.',
+        'Durable thermal gel pack adaptable for warm or cold application across the abdomen, lower back, and joints.',
       image: abdomenImg,
     },
   ];
@@ -82,40 +82,40 @@ export default function Products({ onSelectProduct }) {
   return (
     <section
       id="products"
-      className="py-24 md:py-36 bg-ivory relative"
-      aria-label="Wellness Products & Devices"
+      className="py-20 md:py-28 bg-pure-white border-b border-charcoal/10 scroll-mt-20 md:scroll-mt-24"
+      aria-label="Wellness Products and Supportive Devices"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 md:mb-20 gap-6 sm:gap-8">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-3 mb-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
+          <div className="max-w-xl">
+            <div className="inline-flex items-center gap-2.5 mb-3.5">
               <span className="w-6 h-[1.5px] bg-gold" aria-hidden="true" />
-              <p className="text-xs uppercase tracking-editorial font-medium text-forest">
-                WELLNESS DEVICES & HOME THERAPY
+              <p className="text-[11px] sm:text-xs uppercase tracking-editorial font-medium text-forest">
+                SUPPORTIVE WELLNESS DEVICES
               </p>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-forest-deep font-medium leading-[1.25]">
-              Therapeutic devices from the clinic collection.
+              Therapeutic aids from the clinic collection.
             </h2>
           </div>
 
-          <div className="max-w-md text-xs text-charcoal-muted leading-relaxed border-l border-gold/40 pl-4 font-sans">
-            Items shown represent wellness aids and supportive equipment available at Sri Rama Acupuncture Clinic. Product categories follow client materials. Inquire directly for availability.
-          </div>
+          <p className="text-xs text-charcoal-muted max-w-sm leading-relaxed border-l border-gold/40 pl-3.5 font-sans">
+            Supportive accessories available at the clinic. Inquire directly for availability and consultation guidance.
+          </p>
         </div>
 
-        {/* Editorial Product Showcase: Asymmetric & Balanced Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+        {/* Clean Editorial Product Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {products.map((product) => (
             <div
               key={product.name}
-              className="bg-pure-white border border-charcoal/10 flex flex-col justify-between transition-all duration-300 hover:border-gold/60 hover:shadow-sm group min-w-0"
+              className="bg-ivory/50 border border-charcoal/10 flex flex-col justify-between transition-all duration-300 hover:border-gold/60 group min-w-0"
             >
               <div>
                 {/* Product Image Stage */}
-                <div className="relative aspect-[4/3] bg-ivory/60 p-4 sm:p-6 flex items-center justify-center overflow-hidden border-b border-charcoal/10">
+                <div className="relative aspect-[4/3] bg-pure-white p-5 flex items-center justify-center overflow-hidden border-b border-charcoal/10">
                   <img
                     src={product.image}
                     alt={product.name}
@@ -129,12 +129,12 @@ export default function Products({ onSelectProduct }) {
                   )}
                 </div>
 
-                {/* Product Details */}
-                <div className="p-5 sm:p-6">
-                  <span className="text-[10px] uppercase tracking-editorial text-gold font-medium block mb-2">
+                {/* Details */}
+                <div className="p-5">
+                  <span className="text-[10px] uppercase tracking-editorial text-gold font-medium block mb-1.5">
                     {product.category}
                   </span>
-                  <h3 className="font-serif text-lg sm:text-xl text-forest-deep font-medium mb-2.5 group-hover:text-forest transition-colors">
+                  <h3 className="font-serif text-base sm:text-lg text-forest-deep font-medium mb-2 group-hover:text-forest transition-colors">
                     {product.name}
                   </h3>
                   <p className="text-xs sm:text-sm text-charcoal-muted leading-relaxed">
@@ -143,12 +143,12 @@ export default function Products({ onSelectProduct }) {
                 </div>
               </div>
 
-              {/* Action Button */}
-              <div className="px-5 sm:px-6 pb-4 sm:pb-5 pt-3 border-t border-charcoal/5 flex items-center justify-between gap-3 min-h-[48px]">
+              {/* Action Link */}
+              <div className="px-5 pb-4 pt-3 border-t border-charcoal/5 flex items-center justify-between gap-3">
                 <a
                   href="#contact"
                   onClick={() => onSelectProduct && onSelectProduct(product.name)}
-                  className="inline-flex items-center gap-1.5 text-xs uppercase tracking-eyebrow font-medium text-forest hover:text-forest-deep py-2 min-h-[40px]"
+                  className="inline-flex items-center gap-1.5 text-xs uppercase tracking-eyebrow font-medium text-forest hover:text-forest-deep py-1"
                 >
                   <span>Enquire Availability</span>
                   <FiArrowUpRight className="text-gold text-xs" aria-hidden="true" />
@@ -156,9 +156,8 @@ export default function Products({ onSelectProduct }) {
 
                 <a
                   href="tel:9942611444"
-                  className="text-xs text-charcoal-muted hover:text-forest flex items-center gap-1.5 py-2 px-1 min-h-[40px]"
-                  title="Call clinic to enquire"
-                  aria-label={`Call clinic to enquire about ${product.name}`}
+                  className="text-xs text-charcoal-muted hover:text-forest flex items-center gap-1.5 py-1 px-1"
+                  aria-label={`Call to enquire about ${product.name}`}
                 >
                   <FiPhone className="text-xs text-forest flex-shrink-0" aria-hidden="true" />
                   <span>Call</span>
@@ -166,25 +165,6 @@ export default function Products({ onSelectProduct }) {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Product Consultation Footnote */}
-        <div className="mt-12 sm:mt-16 p-6 sm:p-8 bg-pure-white border border-gold/30 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="max-w-2xl">
-            <h4 className="font-serif text-lg sm:text-xl text-forest font-semibold mb-1">
-              Looking for a specific traditional wellness tool?
-            </h4>
-            <p className="text-xs sm:text-sm text-charcoal-muted leading-relaxed">
-              Our clinic carries an evolving range of therapeutic accessories for foot acupressure, gentle traction, and muscle relaxation. Speak directly with the clinic to check current stock and guidance.
-            </p>
-          </div>
-          <a
-            href="tel:9942611444"
-            className="inline-flex items-center justify-center gap-2 bg-forest hover:bg-forest-deep text-ivory text-xs uppercase tracking-eyebrow font-medium px-6 py-3.5 transition-colors whitespace-nowrap self-start md:self-auto min-h-[44px]"
-          >
-            <FiPhone className="text-gold" aria-hidden="true" />
-            <span>Call 99426 11444</span>
-          </a>
         </div>
 
       </div>
