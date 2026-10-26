@@ -14,13 +14,23 @@ export default function Footer({ prefilledSubject = '' }) {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
 
+  const [prevPrefilledSubject, setPrevPrefilledSubject] = useState(prefilledSubject);
+  if (prefilledSubject !== prevPrefilledSubject) {
+    setPrevPrefilledSubject(prefilledSubject);
+    if (prefilledSubject) {
+      setFormData((prev) => ({
+        ...prev,
+        interest: prefilledSubject,
+      }));
+    }
+  }
+
   const mapsUrl = 'https://share.google/MF64RNzh7p8CPa7Xv';
 
   const navLinks = [
     { label: 'Home', href: '#hero' },
-    { label: 'Doctor Profile', href: '#doctor' },
-    { label: 'Services', href: '#services' },
-    { label: 'Products', href: '#products' },
+    { label: 'Healer Profile', href: '#doctor' },
+    { label: 'Treatments & Products', href: '#treatments' },
     { label: 'About the Clinic', href: '#about' },
     { label: 'Testimonials', href: '#testimonials' },
     { label: 'Location & Map', href: '#location' },

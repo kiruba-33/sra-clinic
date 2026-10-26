@@ -3,12 +3,12 @@ import {
   FiHome,
   FiUser,
   FiActivity,
-  FiPackage,
   FiMoreHorizontal,
   FiInfo,
   FiMessageSquare,
   FiImage,
   FiPhone,
+  FiMapPin,
   FiX,
 } from 'react-icons/fi';
 
@@ -19,22 +19,22 @@ export default function MobileBottomNav() {
   // Primary bottom navigation items
   const primaryNavItems = [
     { id: 'hero', label: 'Home', href: '#hero', icon: FiHome },
-    { id: 'doctor', label: 'Doctor', href: '#doctor', icon: FiUser },
-    { id: 'services', label: 'Services', href: '#services', icon: FiActivity },
-    { id: 'products', label: 'Products', href: '#products', icon: FiPackage },
+    { id: 'doctor', label: 'Healer', href: '#doctor', icon: FiUser },
+    { id: 'treatments', label: 'Treatments', href: '#treatments', icon: FiActivity },
+    { id: 'about', label: 'About', href: '#about', icon: FiInfo },
   ];
 
   // Secondary items shown inside the "More" compact drawer
   const moreNavItems = [
-    { id: 'about', label: 'About the Clinic', href: '#about', icon: FiInfo },
-    { id: 'testimonials', label: 'Testimonials', href: '#testimonials', icon: FiMessageSquare },
-    { id: 'gallery', label: 'Gallery & Setting', href: '#gallery', icon: FiImage },
-    { id: 'contact', label: 'Contact & Appointments', href: '#contact', icon: FiPhone },
+    { id: 'testimonials', label: 'Reviews', href: '#testimonials', icon: FiMessageSquare },
+    { id: 'location', label: 'Map & Location', href: '#location', icon: FiMapPin },
+    { id: 'gallery', label: 'Gallery', href: '#gallery', icon: FiImage },
+    { id: 'contact', label: 'Book Visit', href: '#contact', icon: FiPhone },
   ];
 
   // IntersectionObserver to determine active section on scroll
   useEffect(() => {
-    const sectionIds = ['hero', 'doctor', 'services', 'products', 'about', 'testimonials', 'gallery', 'contact'];
+    const sectionIds = ['hero', 'doctor', 'treatments', 'about', 'testimonials', 'location', 'gallery', 'contact'];
     const elements = sectionIds
       .map((id) => document.getElementById(id))
       .filter((el) => el !== null);

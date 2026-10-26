@@ -27,9 +27,8 @@ export default function Navbar() {
 
   const navLinks = [
     { label: 'Home', href: '#hero' },
-    { label: 'Doctor', href: '#doctor' },
-    { label: 'Services', href: '#services' },
-    { label: 'Products', href: '#products' },
+    { label: 'Healer', href: '#doctor' },
+    { label: 'Treatments & Products', href: '#treatments' },
     { label: 'About', href: '#about' },
     { label: 'Testimonials', href: '#testimonials' },
     { label: 'Gallery', href: '#gallery' },

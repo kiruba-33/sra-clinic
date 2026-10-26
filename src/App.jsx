@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import DoctorProfile from './components/DoctorProfile';
-import Treatments from './components/Treatments';
-import Products from './components/Products';
+import TreatmentsAndProducts from './components/TreatmentsAndProducts';
 import About from './components/About';
 import Testimonials from './components/Testimonials';
 import LocationMap from './components/LocationMap';
@@ -35,11 +34,8 @@ export default function App() {
         {/* 2. Renuka Ma'am Profile (Immediately after Hero) */}
         <DoctorProfile />
 
-        {/* 3. Services / Treatments (Immediately after Doctor Profile) */}
-        <Treatments />
-
-        {/* 4. Products (Immediately after Services) */}
-        <Products onSelectProduct={handleSelectProduct} />
+        {/* 3. Treatments & Wellness Products (Unified Editorial Showcase) */}
+        <TreatmentsAndProducts onSelectItem={handleSelectProduct} />
 
         {/* 5. About the Clinic (Immediately after Products) */}
         <About />
