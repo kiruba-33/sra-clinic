@@ -4,19 +4,21 @@ import healerPhoto from '../assets/editorial/sra-healer.webp';
 
 /**
  * =========================================================================
- * HEALER PROFILE — SRI RAMA ACUPUNCTURE CLINIC
- * Client-provided verified details:
- * Name: Renuga Ramadass
+ * HEALER PROFILE — RENUKA MA'AM (RENUGA RAMADASS)
+ * Sri Rama Acupuncture Clinic
+ * Confirmed Details:
+ * Name: Renuka Ma'am (Renuga Ramadass)
  * Credentials: MD. (Acu), M.Sc. (Yoga), ACPH, DNYS.
  * Experience: 15 Years of Experience
- * Photograph: sra-healer.webp (authentic client photograph)
+ * Photograph: sra-healer.webp (authentic photograph ready for swap if updated)
  * =========================================================================
  */
 const HEALER_DETAILS = {
-  name: 'Renuga Ramadass',
+  name: "Renuka Ramadass",
+  displayName: "Renuka Ma'am",
   credentials: 'MD. (Acu), M.Sc. (Yoga), ACPH, DNYS.',
   experience: '15 Years of Experience',
-  photoAlt: 'Renuga Ramadass — Healer at Sri Rama Acupuncture Clinic',
+  photoAlt: "Renuka Ma'am (Renuga Ramadass) — Healer at Sri Rama Acupuncture Clinic",
 };
 
 export default function DoctorProfile() {
@@ -32,14 +34,29 @@ export default function DoctorProfile() {
           {/* Authentic Healer Portrait Area */}
           <div className="lg:col-span-5 w-full">
             <div className="relative aspect-[4/5] max-w-md mx-auto overflow-hidden border border-gold/40 bg-ivory shadow-md group">
-              <img
-                src={healerPhoto}
-                alt={HEALER_DETAILS.photoAlt}
-                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-                width={1368}
-                height={912}
-              />
+              {healerPhoto ? (
+                <img
+                  src={healerPhoto}
+                  alt={HEALER_DETAILS.photoAlt}
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  width={1368}
+                  height={912}
+                />
+              ) : (
+                /* Editorial Fallback Graphic if photo is temporarily omitted */
+                <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center bg-ivory">
+                  <span className="text-[11px] uppercase tracking-editorial text-gold font-medium block mb-2">
+                    Practitioner Portrait
+                  </span>
+                  <p className="font-serif text-xl text-forest-deep font-medium">
+                    {HEALER_DETAILS.name}
+                  </p>
+                  <p className="text-xs text-charcoal-muted mt-2">
+                    Sri Rama Acupuncture Clinic · Chinnamanur
+                  </p>
+                </div>
+              )}
 
               {/* In-Person Care Badge Overlay - High Contrast Solid Ivory */}
               <div className="absolute bottom-3 left-3 right-3 z-10 bg-[#F7F6F0] border border-[#B69A58] py-2.5 px-2.5 sm:px-4 text-center shadow-md">
@@ -67,9 +84,12 @@ export default function DoctorProfile() {
 
             {/* Healer Name & Credentials */}
             <div className="mb-6 pb-6 border-b border-charcoal/10">
-              <h3 className="font-serif text-2xl sm:text-3xl text-forest-deep font-medium mb-2 tracking-tight">
+              <h3 className="font-serif text-2xl sm:text-3xl text-forest-deep font-medium mb-1 tracking-tight">
                 {HEALER_DETAILS.name}
               </h3>
+              <p className="text-xs uppercase tracking-editorial text-gold font-medium mb-3">
+                Renuka Ma'am · Classical Acupuncturist
+              </p>
 
               {/* Credentials Line */}
               <p className="text-sm sm:text-base font-medium text-forest tracking-wide mb-3">
@@ -86,7 +106,7 @@ export default function DoctorProfile() {
             {/* Concise Description */}
             <div className="space-y-4 text-sm sm:text-base text-charcoal-soft font-normal leading-relaxed max-w-xl mb-8">
               <p>
-                With 15 years of dedicated clinical experience in traditional healthcare, Renuga Ramadass provides personalized acupuncture, yoga therapy, and natural healing treatments tailored to each individual.
+                With 15 years of dedicated clinical experience in traditional healthcare, Renuka Ma'am provides personalized acupuncture, yoga therapy, and natural healing treatments tailored to each individual at Sri Rama Acupuncture Clinic.
               </p>
               <p>
                 Every consultation prioritizes classical point selection, gentle stimulation, and natural therapies designed to restore balance and relieve pain without synthetic medication.

@@ -14,8 +14,7 @@ export default function Footer({ prefilledSubject = '' }) {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
 
-  const mapsUrl =
-    'https://www.google.com/maps/search/?api=1&query=Sri%20Rama%20Acupuncture%20Clinic%20109%20Agraharam%20Chinnamanur%20625515%20Tamil%20Nadu';
+  const mapsUrl = 'https://share.google/MF64RNzh7p8CPa7Xv';
 
   const navLinks = [
     { label: 'Home', href: '#hero' },
@@ -24,6 +23,7 @@ export default function Footer({ prefilledSubject = '' }) {
     { label: 'Products', href: '#products' },
     { label: 'About the Clinic', href: '#about' },
     { label: 'Testimonials', href: '#testimonials' },
+    { label: 'Location & Map', href: '#location' },
     { label: 'Gallery', href: '#gallery' },
   ];
 
@@ -155,7 +155,7 @@ export default function Footer({ prefilledSubject = '' }) {
               <div className="flex items-start gap-2.5 text-xs sm:text-sm text-ivory/80 leading-relaxed font-sans mb-4">
                 <FiMapPin className="text-gold mt-1 flex-shrink-0" aria-hidden="true" />
                 <address className="not-italic">
-                  109, Agraharam, Sri Rama Acupuncture Clinic<br />
+                  43A, Agraharam Rd, Sri Rama Acupuncture Clinic<br />
                   Chinnamanur – 625515<br />
                   Theni district, Tamil Nadu
                 </address>
@@ -355,7 +355,7 @@ export default function Footer({ prefilledSubject = '' }) {
         {/* Bottom Legal & Back to Top */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ivory/50">
           <p className="text-center sm:text-left">
-            © {CURRENT_YEAR} Sri Rama Acupuncture Clinic. All rights reserved. 109, Agraharam, Chinnamanur – 625515.
+            © {CURRENT_YEAR} Sri Rama Acupuncture Clinic. All rights reserved. 43A, Agraharam Rd, Chinnamanur – 625515.
           </p>
 
           <div className="flex items-center gap-4">

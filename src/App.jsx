@@ -6,6 +6,7 @@ import Treatments from './components/Treatments';
 import Products from './components/Products';
 import About from './components/About';
 import Testimonials from './components/Testimonials';
+import LocationMap from './components/LocationMap';
 import Gallery from './components/Gallery';
 import Footer from './components/Footer';
 import MobileBottomNav from './components/MobileBottomNav';
@@ -31,7 +32,7 @@ export default function App() {
         {/* 1. Hero Section (with Background Image & Minimal Text) */}
         <Hero />
 
-        {/* 2. Doctor Profile (Immediately after Hero) */}
+        {/* 2. Renuka Ma'am Profile (Immediately after Hero) */}
         <DoctorProfile />
 
         {/* 3. Services / Treatments (Immediately after Doctor Profile) */}
@@ -43,10 +44,13 @@ export default function App() {
         {/* 5. About the Clinic (Immediately after Products) */}
         <About />
 
-        {/* 6. Testimonials (Immediately after About) */}
+        {/* 6. Testimonials / Genuine Google Reviews (Immediately after About) */}
         <Testimonials />
 
-        {/* 7. Gallery / Videos (Immediately after Testimonials and before Footer) */}
+        {/* 7. Google Business Profile and Map (Immediately after Testimonials and before Gallery) */}
+        <LocationMap />
+
+        {/* 8. Gallery / Videos (Immediately after Location Map and before Footer) */}
         <Gallery />
       </main>
 
