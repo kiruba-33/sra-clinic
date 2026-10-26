@@ -2,52 +2,123 @@ import React from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
 import careImg from '../assets/editorial/traditional-care.jpg';
 
-export default function Treatments() {
-  const services = [
-    {
-      num: '01',
-      title: 'Varicose Vein-Related Concerns',
-      category: 'Circulation & Lower Limb Comfort',
-      description:
-        'Point stimulation and traditional circulation-support methods aimed at easing leg heaviness, muscular fatigue, and localized tension.',
-    },
-    {
-      num: '02',
-      title: 'Sciatic Nerve-Related Concerns',
-      category: 'Neuromuscular Pathway Relief',
-      description:
-        'Targeted needle application along lumbar and leg meridians designed to ease stiffness, physical compression, and radiating discomfort.',
-    },
-    {
-      num: '03',
-      title: 'Insomnia & Sleep Concerns',
-      category: 'Rest & Calming Support',
-      description:
-        'Gentle cranial and peripheral acupoints utilized to calm mental overactivity and support the body’s natural rest rhythms.',
-    },
-    {
-      num: '04',
-      title: 'Varma Treatment',
-      category: 'Classical Energy Junctions',
-      description:
-        'Traditional Tamil pressure point therapy involving calculated manual touch to release physical blockages and restore balance.',
-    },
-    {
-      num: '05',
-      title: 'Thokkanam Treatment',
-      category: 'Therapeutic Bodywork',
-      description:
-        'Structured traditional body manipulation and joint mobilization to soothe tight musculature, joint stiffness, and bodily fatigue.',
-    },
-    {
-      num: '06',
-      title: 'Magnetic Therapy',
-      category: 'Complementary Polarity Care',
-      description:
-        'Application of gentle static magnetic pads to support localized circulation, ease joint stiffness, and encourage natural recuperation.',
-    },
-  ];
+/**
+ * =========================================================================
+ * SERVICES & THERAPEUTIC DISCIPLINES
+ * Sri Rama Acupuncture Clinic · Chinnamanur, Theni
+ * Verified Client-Provided Service Categories:
+ * 1. Treatments & Therapies (7 services)
+ * 2. Bath & Natural Therapies (4 services)
+ * 3. Wellness Practices (3 services)
+ * Total: 14 unique services, zero duplicates.
+ * =========================================================================
+ */
+const SERVICE_GROUPS = [
+  {
+    groupTitle: 'Treatments & Therapies',
+    groupSubtitle: 'Classical In-Clinic Therapeutic Interventions',
+    items: [
+      {
+        num: '01',
+        title: 'Acupuncture',
+        description:
+          'Classical meridian point stimulation to restore energetic balance, relieve bodily pain, and support natural recuperation.',
+      },
+      {
+        num: '02',
+        title: 'Pranic Healing',
+        description:
+          'Non-touch vital energy therapy to cleanse, harmonize, and revitalize the body’s natural life-force pathways.',
+      },
+      {
+        num: '03',
+        title: 'Cupping Therapy',
+        description:
+          'Traditional suction therapy along muscular meridians to ease deep tension and stimulate micro-circulation.',
+      },
+      {
+        num: '04',
+        title: 'Seed Therapy',
+        description:
+          'Placement of natural therapeutic seeds upon targeted reflex points for continuous, gentle pressure stimulation.',
+      },
+      {
+        num: '05',
+        title: 'Varmam (Varma) Therapy',
+        description:
+          'Traditional Tamil vital pressure point therapy involving calculated touch to release blockages and restore natural flow.',
+      },
+      {
+        num: '06',
+        title: 'Thokkanam Treatment',
+        description:
+          'Traditional therapeutic bodywork and mobilization technique to soothe muscular stiffness, joints, and bodily fatigue.',
+      },
+      {
+        num: '07',
+        title: 'Magnetic Therapy',
+        description:
+          'Application of gentle static magnetic pads to support localized blood flow and natural comfort.',
+      },
+    ],
+  },
+  {
+    groupTitle: 'Bath & Natural Therapies',
+    groupSubtitle: 'Hydrotherapy & Natural Cleansing Modalities',
+    items: [
+      {
+        num: '08',
+        title: 'Steam Bath',
+        description:
+          'Traditional herbal steam exposure to open pores, encourage healthy perspiration, and promote bodily relaxation.',
+      },
+      {
+        num: '09',
+        title: 'Hip Bath',
+        description:
+          'Specialized pelvic hydrotherapy immersion designed to support lower abdominal harmony and pelvic wellness.',
+      },
+      {
+        num: '10',
+        title: 'Spine Bath',
+        description:
+          'Targeted hydrotherapy along the spinal column to soothe nervous exhaustion and alleviate back fatigue.',
+      },
+      {
+        num: '11',
+        title: 'Banana Leaf Bath',
+        description:
+          'Classical natural sun therapy wrapped in fresh banana leaves for full-body natural cleansing and vitality.',
+      },
+    ],
+  },
+  {
+    groupTitle: 'Wellness Practices',
+    groupSubtitle: 'Holistic Lifestyle & Restorative Disciplines',
+    items: [
+      {
+        num: '12',
+        title: 'Food Medicine',
+        description:
+          'Personalized dietary and nutritional guidance rooted in classical healing principles to nourish natural self-recovery.',
+      },
+      {
+        num: '13',
+        title: 'Yoga',
+        description:
+          'Therapeutic postures, gentle breathwork, and restorative techniques tailored to individual physical wellbeing.',
+      },
+      {
+        num: '14',
+        title: 'Mudras',
+        description:
+          'Traditional hand gestures and energetic seals designed to harmonize subtle elements and focus vital energy.',
+      },
+    ],
+  },
+];
 
+export default function Treatments() {
   return (
     <section
       id="services"
@@ -75,10 +146,10 @@ export default function Treatments() {
           </p>
         </div>
 
-        {/* Editorial Layout: Side Image & Condensed Services Grid */}
+        {/* Editorial Layout: Side Anchor & Grouped Services Ledger */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           
-          {/* Visual Anchor (4 columns) */}
+          {/* Visual Anchor (4 columns on desktop, sticky) */}
           <div className="lg:col-span-4 lg:sticky lg:top-28 space-y-6 w-full">
             <div className="relative aspect-[4/5] overflow-hidden border border-gold/30 bg-pure-white shadow-sm">
               <img
@@ -90,12 +161,12 @@ export default function Treatments() {
                 height="500"
               />
             </div>
-            <div className="p-5 bg-pure-white border border-charcoal/10">
-              <p className="font-serif text-base text-forest-deep font-medium mb-1">
+            <div className="p-6 bg-pure-white border border-charcoal/10 shadow-sm">
+              <p className="font-serif text-lg text-forest-deep font-medium mb-1.5">
                 Consultation First
               </p>
-              <p className="text-xs text-charcoal-muted leading-relaxed mb-3">
-                Every session begins with a conversation about your symptoms and lifestyle to recommend an appropriate therapy.
+              <p className="text-xs text-charcoal-muted leading-relaxed mb-4">
+                Every session begins with an individual consultation to determine the appropriate therapy combination for your wellbeing.
               </p>
               <a
                 href="#contact"
@@ -107,47 +178,80 @@ export default function Treatments() {
             </div>
           </div>
 
-          {/* Numbered Service Ledger (8 columns) */}
-          <div className="lg:col-span-8 divide-y divide-charcoal/10 border-t border-b border-charcoal/10 min-w-0">
-            {services.map((item) => (
-              <div
-                key={item.num}
-                className="py-6 sm:py-7 group transition-colors duration-200 hover:bg-pure-white/60 px-2 sm:px-4"
-              >
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-2.5 sm:gap-4 md:gap-6 items-baseline">
-                  
-                  {/* Number & Category */}
-                  <div className="md:col-span-3 flex md:flex-col items-center md:items-start justify-between">
-                    <span className="font-serif text-2xl text-gold font-medium leading-none">
-                      {item.num}
-                    </span>
-                    <span className="text-[10px] uppercase tracking-eyebrow text-charcoal-muted font-medium mt-1">
-                      {item.category}
-                    </span>
-                  </div>
-
-                  {/* Title & Short Description */}
-                  <div className="md:col-span-9 space-y-1.5 min-w-0">
-                    <h3 className="font-serif text-lg sm:text-xl text-forest-deep font-medium group-hover:text-forest transition-colors">
-                      {item.title}
+          {/* Grouped Services Ledger (8 columns on desktop) */}
+          <div className="lg:col-span-8 space-y-10 min-w-0">
+            {SERVICE_GROUPS.map((group, groupIdx) => (
+              <div key={groupIdx} className="bg-pure-white border border-charcoal/10 p-6 sm:p-8 shadow-sm">
+                
+                {/* Group Banner */}
+                <div className="border-b border-charcoal/10 pb-4 mb-6 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                  <div>
+                    <h3 className="font-serif text-xl sm:text-2xl text-forest-deep font-medium">
+                      {group.groupTitle}
                     </h3>
-                    <p className="text-sm text-charcoal-soft font-normal leading-relaxed">
-                      {item.description}
+                    <p className="text-xs text-charcoal-muted mt-0.5">
+                      {group.groupSubtitle}
                     </p>
-                    <div className="pt-1">
-                      <a
-                        href="#contact"
-                        className="inline-flex items-center gap-1.5 text-xs text-forest font-medium hover:underline tracking-wide py-1 min-h-[36px]"
-                      >
-                        <span>Enquire for this service</span>
-                        <FiArrowUpRight className="text-xs text-gold" aria-hidden="true" />
-                      </a>
-                    </div>
                   </div>
-
+                  <span className="text-[10px] uppercase tracking-eyebrow font-medium text-gold self-start sm:self-auto">
+                    {group.items.length} Services
+                  </span>
                 </div>
+
+                {/* Service Items in Group */}
+                <div className="divide-y divide-charcoal/10">
+                  {group.items.map((item) => (
+                    <div
+                      key={item.num}
+                      className="py-4 sm:py-5 first:pt-0 last:pb-0 group transition-colors"
+                    >
+                      <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-4 items-baseline">
+                        
+                        {/* Service Number */}
+                        <div className="sm:col-span-2 flex items-center gap-2">
+                          <span className="font-serif text-base sm:text-lg text-gold font-medium">
+                            {item.num}
+                          </span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-sage/40 group-hover:bg-gold transition-colors hidden sm:inline-block" aria-hidden="true" />
+                        </div>
+
+                        {/* Title & Short Description */}
+                        <div className="sm:col-span-10 min-w-0">
+                          <h4 className="font-serif text-base sm:text-lg text-forest-deep font-medium group-hover:text-forest transition-colors mb-1">
+                            {item.title}
+                          </h4>
+                          <p className="text-xs sm:text-sm text-charcoal-soft font-normal leading-relaxed">
+                            {item.description}
+                          </p>
+                        </div>
+
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
               </div>
             ))}
+
+            {/* Bottom Consultation Prompt */}
+            <div className="p-6 bg-pure-white border border-gold/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <p className="font-serif text-base text-forest-deep font-medium">
+                  Looking for a customized treatment plan?
+                </p>
+                <p className="text-xs text-charcoal-muted mt-1">
+                  Therapies may be integrated harmoniously based on in-person diagnostic evaluation.
+                </p>
+              </div>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 bg-forest hover:bg-forest-deep text-ivory text-xs uppercase tracking-eyebrow font-medium px-5 py-3 transition-colors min-h-[42px] whitespace-nowrap self-stretch sm:self-auto justify-center"
+              >
+                <span>Schedule Consultation</span>
+                <FiArrowUpRight className="text-gold text-xs" aria-hidden="true" />
+              </a>
+            </div>
+
           </div>
 
         </div>
