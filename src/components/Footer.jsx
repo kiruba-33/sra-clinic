@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FiPhone, FiMail, FiMapPin, FiArrowUp, FiArrowUpRight, FiCheck } from 'react-icons/fi';
-import sraLogo from '../assets/sra-logo.jpg';
+import sraLogo from '../assets/sra-logo.webp';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -364,9 +364,22 @@ export default function Footer({ prefilledSubject = '' }) {
 
         {/* Bottom Legal & Back to Top */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ivory/50">
-          <p className="text-center sm:text-left">
-            © {CURRENT_YEAR} Sri Rama Acupuncture Clinic. All rights reserved. 43A, Agraharam Rd, Chinnamanur – 625515.
-          </p>
+          <div className="text-center sm:text-left space-y-1">
+            <p>
+              © {CURRENT_YEAR} Sri Rama Acupuncture Clinic. All rights reserved. 43A, Agraharam Rd, Chinnamanur – 625515.
+            </p>
+            <p className="text-[11px] text-ivory/45">
+              Developed by{' '}
+              <a
+                href="https://navipromotions.in/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ivory/70 hover:text-gold underline underline-offset-2 transition-colors focus:outline-none focus:ring-1 focus:ring-gold focus:ring-offset-1 focus:ring-offset-forest-deep rounded-xs"
+              >
+                Navi Promotions
+              </a>
+            </p>
+          </div>
 
           <div className="flex items-center gap-4">
             <span className="text-ivory/40">Established 5 Feb 2012</span>

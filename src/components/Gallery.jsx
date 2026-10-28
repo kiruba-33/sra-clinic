@@ -1,11 +1,11 @@
 import React from 'react';
 import { FiVideo, FiArrowUpRight } from 'react-icons/fi';
 
-import heroImg from '../assets/editorial/hero-acupuncture.jpg';
-import clinicImg from '../assets/editorial/clinic-therapy.jpg';
-import careImg from '../assets/editorial/traditional-care.jpg';
-import chairImg from '../assets/products/relaxation-chair.jpg';
-import kitImg from '../assets/products/acupressure-kit.jpg';
+import heroImg from '../assets/editorial/hero-acupuncture.webp';
+import clinicImg from '../assets/editorial/clinic-therapy.webp';
+import careImg from '../assets/editorial/traditional-care.webp';
+import chairImg from '../assets/products/relaxation-chair.webp';
+import kitImg from '../assets/products/acupressure-kit.webp';
 
 /**
  * =========================================================================
@@ -80,7 +80,7 @@ export default function Gallery() {
               </p>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-forest-deep font-medium leading-[1.25]">
-              Visuals of our setting and therapies.
+              Gallery
             </h2>
           </div>
 

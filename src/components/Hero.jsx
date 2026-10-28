@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiPhone, FiArrowUpRight } from 'react-icons/fi';
-import heroBg from '../assets/editorial/hero-acupuncture.jpg';
+import heroBg from '../assets/editorial/hero-acupuncture.webp';
 
 export default function Hero() {
   return (

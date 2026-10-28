@@ -1,32 +1,32 @@
 import React, { useState } from 'react';
 import { FiArrowUpRight, FiInfo } from 'react-icons/fi';
 
-// Service & Treatment Images
-import acupunctureImg from '../assets/services/acupuncture.jpg';
-import pranicImg from '../assets/services/pranic-healing.jpg';
-import cuppingImg from '../assets/services/cupping-therapy.jpg';
-import seedImg from '../assets/services/seed-therapy.jpg';
-import steamBathImg from '../assets/services/steam-bath.jpg';
-import hipBathImg from '../assets/services/hip-bath.jpg';
-import spineBathImg from '../assets/services/spine-bath.jpg';
-import bananaLeafImg from '../assets/services/banana-leaf-bath.jpg';
-import varmaImg from '../assets/services/varma-therapy.jpg';
-import thokkanamImg from '../assets/services/thokkanam-treatment.jpg';
-import magneticImg from '../assets/services/magnetic-therapy.jpg';
-import foodMedicineImg from '../assets/services/food-medicine.jpg';
-import yogaImg from '../assets/services/yoga.jpg';
-import mudrasImg from '../assets/services/mudras.jpg';
+// Service & Treatment Images (Optimized WebP < 150 KB)
+import acupunctureImg from '../assets/services/acupuncture.webp';
+import pranicImg from '../assets/services/pranic-healing.webp';
+import cuppingImg from '../assets/services/cupping-therapy.webp';
+import seedImg from '../assets/services/seed-therapy.webp';
+import steamBathImg from '../assets/services/steam-bath.webp';
+import hipBathImg from '../assets/services/hip-bath.webp';
+import spineBathImg from '../assets/services/spine-bath.webp';
+import bananaLeafImg from '../assets/services/banana-leaf-bath.webp';
+import varmaImg from '../assets/services/varma-therapy.webp';
+import thokkanamImg from '../assets/services/thokkanam-treatment.webp';
+import magneticImg from '../assets/services/magnetic-therapy.webp';
+import foodMedicineImg from '../assets/services/food-medicine.webp';
+import yogaImg from '../assets/services/yoga.webp';
+import mudrasImg from '../assets/services/mudras.webp';
 
-// Authentic Product Images Supplied by Client
-import slipperImg from '../assets/products/acupressure-slipper.jpg';
-import magicRollerImg from '../assets/products/magic-roller.jpg';
-import twisterImg from '../assets/products/twister-disc.jpg';
-import kitImg from '../assets/products/acupressure-kit.jpg';
-import massager12Img from '../assets/products/12-ball-massager.jpg';
-import eyeMaskImg from '../assets/products/cooling-eye-mask.jpg';
-import faceMaskImg from '../assets/products/hot-cold-face-mask.jpg';
-import abdomenImg from '../assets/products/abdomen-gel-pack.jpg';
-import chairImg from '../assets/products/relaxation-chair.jpg';
+// Authentic Product Images (Clean Studio Photography, Optimized WebP < 150 KB)
+import slipperImg from '../assets/products/acupressure-slipper.webp';
+import magicRollerImg from '../assets/products/magic-roller.webp';
+import twisterImg from '../assets/products/twister-disc.webp';
+import kitImg from '../assets/products/acupressure-kit.webp';
+import massager12Img from '../assets/products/12-ball-massager.webp';
+import eyeMaskImg from '../assets/products/cooling-eye-mask.webp';
+import faceMaskImg from '../assets/products/hot-cold-face-mask.webp';
+import abdomenImg from '../assets/products/abdomen-gel-pack.webp';
+import chairImg from '../assets/products/relaxation-chair.webp';
 
 /**
  * =========================================================================

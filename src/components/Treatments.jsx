@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
-import careImg from '../assets/editorial/traditional-care.jpg';
+import careImg from '../assets/editorial/traditional-care.webp';
 
 /**
  * =========================================================================

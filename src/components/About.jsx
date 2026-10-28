@@ -1,6 +1,6 @@
 import React from 'react';
-import sraLogo from '../assets/sra-logo.jpg';
-import aboutImg from '../assets/editorial/clinic-therapy.jpg';
+import sraLogo from '../assets/sra-logo.webp';
+import aboutImg from '../assets/editorial/clinic-therapy.webp';
 
 export default function About() {
   return (

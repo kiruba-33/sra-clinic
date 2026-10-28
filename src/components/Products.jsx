@@ -1,15 +1,15 @@
 import React from 'react';
 import { FiArrowUpRight, FiPhone } from 'react-icons/fi';
 
-import twisterImg from '../assets/products/twister-disc.jpg';
-import massager12Img from '../assets/products/12-ball-massager.jpg';
-import kitImg from '../assets/products/acupressure-kit.jpg';
-import eyeMaskImg from '../assets/products/cooling-eye-mask.jpg';
-import slipperImg from '../assets/products/acupressure-slipper.jpg';
-import faceMaskImg from '../assets/products/hot-cold-face-mask.jpg';
-import magicRollerImg from '../assets/products/magic-roller.jpg';
-import abdomenImg from '../assets/products/abdomen-gel-pack.jpg';
-import chairImg from '../assets/products/relaxation-chair.jpg';
+import twisterImg from '../assets/products/twister-disc.webp';
+import massager12Img from '../assets/products/12-ball-massager.webp';
+import kitImg from '../assets/products/acupressure-kit.webp';
+import eyeMaskImg from '../assets/products/cooling-eye-mask.webp';
+import slipperImg from '../assets/products/acupressure-slipper.webp';
+import faceMaskImg from '../assets/products/hot-cold-face-mask.webp';
+import magicRollerImg from '../assets/products/magic-roller.webp';
+import abdomenImg from '../assets/products/abdomen-gel-pack.webp';
+import chairImg from '../assets/products/relaxation-chair.webp';
 
 export default function Products({ onSelectProduct }) {
   const products = [

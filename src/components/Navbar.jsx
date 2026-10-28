@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FiMenu, FiX, FiPhone, FiArrowUpRight } from 'react-icons/fi';
-import sraLogo from '../assets/sra-logo.jpg';
+import sraLogo from '../assets/sra-logo.webp';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
