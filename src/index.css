@@ -40,6 +40,181 @@
     letter-spacing: -0.015em;
   }
 
+  /* Tamil Typography Enhancements when lang="ta" */
+  html[lang="ta"] body {
+    font-family: 'Noto Sans Tamil', 'DM Sans', system-ui, sans-serif;
+    line-height: 1.8;
+  }
+
+  html[lang="ta"] h1,
+  html[lang="ta"] h2,
+  html[lang="ta"] h3,
+  html[lang="ta"] h4 {
+    font-family: 'Noto Sans Tamil', 'Lora', serif;
+    line-height: 1.35;
+    letter-spacing: normal;
+  }
+
+  /* Tamil Navbar Scoped Typography & Spacing */
+  html[lang="ta"] header nav a {
+    font-family: 'Noto Sans Tamil', 'DM Sans', sans-serif;
+    letter-spacing: normal;
+    line-height: 1.4;
+  }
+
+  html[lang="ta"] header a span {
+    letter-spacing: normal;
+  }
+
+  /* =========================================================================
+     TAMIL DESKTOP NAVBAR GRID LAYOUT (1280px and above)
+     Structure: [SRA BRAND] [NAVIGATION LINKS] [PHONE] [APPOINTMENT BUTTON]
+     grid-template-columns: auto minmax(0, 1fr) auto auto;
+     Applies ONLY when html[lang="ta"] is active.
+     ========================================================================= */
+  /* =========================================================================
+     TAMIL DESKTOP NAVBAR GRID LAYOUT (1280px and above)
+     Structure: [SRA BRAND] [NAVIGATION LINKS] [PHONE] [APPOINTMENT BUTTON]
+     grid-template-columns: auto minmax(0, 1fr) auto auto;
+     Applies ONLY when html[lang="ta"] is active.
+     ========================================================================= */
+  @media (min-width: 1280px) {
+    html[lang="ta"] header .ta-navbar-grid {
+      display: grid !important;
+      grid-template-columns: auto minmax(0, 1fr) auto auto !important;
+      align-items: center !important;
+      column-gap: 1.125rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    html[lang="ta"] header .ta-brand-col {
+      grid-column: 1 / 2 !important;
+      justify-self: start !important;
+      display: flex !important;
+      align-items: center !important;
+      flex-shrink: 0 !important;
+    }
+
+    html[lang="ta"] header .ta-brand-title {
+      font-family: 'Noto Sans Tamil', Georgia, serif !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      letter-spacing: normal !important;
+      line-height: 1.25 !important;
+      white-space: nowrap !important;
+    }
+
+    html[lang="ta"] header .ta-brand-sub {
+      font-family: 'Noto Sans Tamil', system-ui, sans-serif !important;
+      font-size: 9.5px !important;
+      letter-spacing: normal !important;
+      text-transform: none !important;
+      line-height: 1.2 !important;
+      white-space: nowrap !important;
+    }
+
+    html[lang="ta"] header .ta-nav-links {
+      grid-column: 2 / 3 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      justify-self: center !important;
+      column-gap: 0.4rem !important;
+      margin: 0 auto !important;
+      white-space: nowrap !important;
+    }
+
+    html[lang="ta"] header .ta-nav-link {
+      font-family: 'Noto Sans Tamil', system-ui, sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      line-height: 1.4 !important;
+      letter-spacing: normal !important;
+      white-space: nowrap !important;
+      padding: 0.2rem 0.25rem !important;
+    }
+
+    html[lang="ta"] header .ta-phone-cta {
+      grid-column: 3 / 4 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-self: end !important;
+      column-gap: 0.35rem !important;
+      font-size: 0.8rem !important;
+      letter-spacing: normal !important;
+      white-space: nowrap !important;
+      padding: 0.25rem 0.35rem !important;
+    }
+
+    html[lang="ta"] header .ta-appointment-cta {
+      grid-column: 4 / 5 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      justify-self: end !important;
+      text-align: center !important;
+      column-gap: 0.35rem !important;
+      font-family: 'Noto Sans Tamil', system-ui, sans-serif !important;
+      font-size: 0.75rem !important;
+      font-weight: 600 !important;
+      letter-spacing: normal !important;
+      padding: 0.45rem 0.75rem !important;
+      white-space: nowrap !important;
+      min-height: 40px !important;
+      flex-shrink: 0 !important;
+    }
+
+    html[lang="ta"] header .ta-mobile-toggle {
+      display: none !important;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    html[lang="ta"] header .ta-navbar-grid {
+      column-gap: 1.5rem !important;
+    }
+
+    html[lang="ta"] header .ta-brand-title {
+      font-size: 15px !important;
+    }
+
+    html[lang="ta"] header .ta-nav-links {
+      column-gap: 0.65rem !important;
+    }
+
+    html[lang="ta"] header .ta-nav-link {
+      font-size: 13.5px !important;
+      padding: 0.25rem 0.35rem !important;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    html[lang="ta"] header .ta-navbar-grid {
+      column-gap: 1.75rem !important;
+    }
+
+    html[lang="ta"] header .ta-brand-title {
+      font-size: 16px !important;
+    }
+
+    html[lang="ta"] header .ta-nav-links {
+      column-gap: 0.85rem !important;
+    }
+
+    html[lang="ta"] header .ta-nav-link {
+      font-size: 14px !important;
+      padding: 0.25rem 0.45rem !important;
+    }
+  }
+
+  /* Tamil Tablet Header Alignment (< 1280px) */
+  @media (max-width: 1279px) {
+    html[lang="ta"] header .ta-phone-cta {
+      margin-left: auto !important;
+    }
+  }
+
   /* Accessibility focus ring */
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
     outline: 2px solid var(--forest-green);

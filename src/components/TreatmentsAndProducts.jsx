@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FiArrowUpRight, FiInfo } from 'react-icons/fi';
+import { useLanguage } from '../hooks/useLanguage';
 
 // Service & Treatment Images (Optimized WebP < 150 KB)
 import acupunctureImg from '../assets/services/acupuncture.webp';
@@ -251,15 +252,16 @@ const ALL_ITEMS = [
   },
 ];
 
-const CATEGORIES = [
-  { id: 'all', label: 'All Items' },
-  { id: 'treatment', label: 'Treatments' },
-  { id: 'wellness', label: 'Wellness' },
-  { id: 'product', label: 'Products' },
-];
-
 export default function TreatmentsAndProducts({ onSelectItem }) {
   const [activeFilter, setActiveFilter] = useState('all');
+  const { t } = useLanguage();
+
+  const categories = [
+    { id: 'all', label: t('showcase.filterAll', 'All Items') },
+    { id: 'treatment', label: t('showcase.filterTreatments', 'Treatments') },
+    { id: 'wellness', label: t('showcase.filterWellness', 'Wellness') },
+    { id: 'product', label: t('showcase.filterProducts', 'Products') },
+  ];
 
   const filteredItems =
     activeFilter === 'all'
@@ -277,6 +279,12 @@ export default function TreatmentsAndProducts({ onSelectItem }) {
     }
   };
 
+  const getCategoryLabel = (categoryType) => {
+    if (categoryType === 'treatment') return t('showcase.categoryTreatment', 'Treatment');
+    if (categoryType === 'wellness') return t('showcase.categoryWellness', 'Wellness');
+    return t('showcase.categoryProduct', 'Product');
+  };
+
   return (
     <section
       id="treatments"
@@ -291,20 +299,20 @@ export default function TreatmentsAndProducts({ onSelectItem }) {
             <div className="inline-flex items-center gap-2.5 mb-3.5">
               <span className="w-6 h-[1.5px] bg-forest" aria-hidden="true" />
               <p className="text-[11px] sm:text-xs uppercase tracking-editorial font-medium text-forest">
-                CLINICAL CARE & SUPPORTIVE AIDS
+                {t('showcase.eyebrow', 'CLINICAL CARE & SUPPORTIVE AIDS')}
               </p>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-forest-deep font-medium leading-[1.25]">
-              Treatments & Wellness Products
+              {t('showcase.title', 'Treatments & Wellness Products')}
             </h2>
             <p className="text-xs sm:text-sm text-charcoal-muted mt-2 leading-relaxed">
-              Explore our traditional therapies and supportive wellness devices designed to restore balance naturally.
+              {t('showcase.description', 'Explore our traditional therapies and supportive wellness devices designed to restore balance naturally.')}
             </p>
           </div>
 
           {/* Understated Clinical Disclaimer */}
           <p className="text-xs text-charcoal-muted max-w-xs leading-relaxed border-l border-gold/40 pl-3.5 font-sans">
-            Therapies and devices are recommended individually during personal consultation.
+            {t('showcase.disclaimer', 'Therapies and devices are recommended individually during personal consultation.')}
           </p>
         </div>
 
@@ -312,20 +320,30 @@ export default function TreatmentsAndProducts({ onSelectItem }) {
         <div className="mb-8 p-4 bg-pure-white/80 border border-charcoal/10 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-charcoal-muted">
           <div className="flex items-center gap-1.5 font-medium text-forest">
             <FiInfo className="text-gold text-sm" aria-hidden="true" />
-            <span className="uppercase tracking-eyebrow text-[10px]">Concerns Addressed:</span>
+            <span className="uppercase tracking-eyebrow text-[10px]">
+              {t('showcase.concernsTitle', 'Concerns Addressed:')}
+            </span>
           </div>
-          <span className="text-charcoal-soft font-medium">Varicose Vein Relief</span>
+          <span className="text-charcoal-soft font-medium">
+            {t('showcase.concern1Title', 'Varicose Vein Relief')}
+          </span>
           <span className="text-charcoal/30">·</span>
-          <span className="text-charcoal-soft font-medium">Sciatic Nerve Pathway Relief</span>
+          <span className="text-charcoal-soft font-medium">
+            {t('showcase.concern2Title', 'Sciatic Nerve Pathway Relief')}
+          </span>
           <span className="text-charcoal/30">·</span>
-          <span className="text-charcoal-soft font-medium">Insomnia & Sleep Balance</span>
+          <span className="text-charcoal-soft font-medium">
+            {t('showcase.concern3Title', 'Insomnia & Sleep Balance')}
+          </span>
           <span className="text-charcoal/30">·</span>
-          <span className="text-charcoal-soft font-medium">Joint & Muscular Tension</span>
+          <span className="text-charcoal-soft font-medium">
+            {t('showcase.concern4Title', 'Joint & Muscular Tension')}
+          </span>
         </div>
 
         {/* Category Filter Tabs */}
         <div className="flex flex-wrap items-center gap-2.5 mb-10 pb-4 border-b border-charcoal/10">
-          {CATEGORIES.map((cat) => {
+          {categories.map((cat) => {
             const count =
               cat.id === 'all'
                 ? ALL_ITEMS.length
@@ -358,78 +376,84 @@ export default function TreatmentsAndProducts({ onSelectItem }) {
 
         {/* Responsive Editorial Showcase Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-7">
-          {filteredItems.map((item) => (
-            <div
-              key={item.id}
-              className="bg-pure-white border border-charcoal/10 hover:border-gold/50 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-md group overflow-hidden"
-            >
-              <div>
-                {/* Relevant Photograph for Every Item */}
-                <div className="relative aspect-[4/3] bg-ivory overflow-hidden border-b border-charcoal/10">
-                  <img
-                    src={item.image}
-                    alt={`${item.name} at Sri Rama Acupuncture Clinic`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                    width="400"
-                    height="300"
-                  />
+          {filteredItems.map((item) => {
+            const translatedName = t(`showcase.items.${item.id}.name`, item.name);
+            const translatedDesc = t(`showcase.items.${item.id}.description`, item.description);
+            const categoryBadge = getCategoryLabel(item.categoryType);
 
-                  {/* Understated Category Label */}
-                  <div className="absolute top-3 left-3">
-                    <span
-                      className={`text-[10px] uppercase tracking-eyebrow font-semibold px-2.5 py-1 border shadow-xs ${
-                        item.categoryType === 'treatment'
-                          ? 'bg-forest-deep/90 text-ivory border-gold/40'
-                          : item.categoryType === 'wellness'
-                          ? 'bg-sage-dark/90 text-ivory border-sage-light/30'
-                          : 'bg-pure-white/95 text-forest-deep border-gold/40'
-                      }`}
-                    >
-                      {item.category}
-                    </span>
+            return (
+              <div
+                key={item.id}
+                className="bg-pure-white border border-charcoal/10 hover:border-gold/50 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-md group overflow-hidden"
+              >
+                <div>
+                  {/* Relevant Photograph for Every Item */}
+                  <div className="relative aspect-[4/3] bg-ivory overflow-hidden border-b border-charcoal/10">
+                    <img
+                      src={item.image}
+                      alt={`${translatedName} at Sri Rama Acupuncture Clinic`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      width="400"
+                      height="300"
+                    />
+
+                    {/* Understated Category Label */}
+                    <div className="absolute top-3 left-3">
+                      <span
+                        className={`text-[10px] uppercase tracking-eyebrow font-semibold px-2.5 py-1 border shadow-xs ${
+                          item.categoryType === 'treatment'
+                            ? 'bg-forest-deep/90 text-ivory border-gold/40'
+                            : item.categoryType === 'wellness'
+                            ? 'bg-sage-dark/90 text-ivory border-sage-light/30'
+                            : 'bg-pure-white/95 text-forest-deep border-gold/40'
+                        }`}
+                      >
+                        {categoryBadge}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Content Area */}
+                  <div className="p-5">
+                    <h3 className="font-serif text-lg text-forest-deep font-medium group-hover:text-forest transition-colors mb-2">
+                      {translatedName}
+                    </h3>
+                    <p className="text-xs text-charcoal-soft font-normal leading-relaxed line-clamp-3">
+                      {translatedDesc}
+                    </p>
                   </div>
                 </div>
 
-                {/* Content Area */}
-                <div className="p-5">
-                  <h3 className="font-serif text-lg text-forest-deep font-medium group-hover:text-forest transition-colors mb-2">
-                    {item.name}
-                  </h3>
-                  <p className="text-xs text-charcoal-soft font-normal leading-relaxed line-clamp-3">
-                    {item.description}
-                  </p>
+                {/* Action Button */}
+                <div className="px-5 pb-5 pt-2 border-t border-charcoal/5">
+                  <button
+                    type="button"
+                    onClick={() => handleEnquiry(translatedName)}
+                    className="w-full inline-flex items-center justify-between text-xs uppercase tracking-eyebrow font-medium text-forest hover:text-forest-deep py-2 group-hover:underline min-h-[36px]"
+                  >
+                    <span>
+                      {item.categoryType === 'product'
+                        ? t('showcase.enquireProduct', 'Enquire Availability')
+                        : t('showcase.enquireTreatment', 'Consult for This Therapy')}
+                    </span>
+                    <FiArrowUpRight className="text-gold text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
+                  </button>
                 </div>
-              </div>
 
-              {/* Action Button */}
-              <div className="px-5 pb-5 pt-2 border-t border-charcoal/5">
-                <button
-                  type="button"
-                  onClick={() => handleEnquiry(item.name)}
-                  className="w-full inline-flex items-center justify-between text-xs uppercase tracking-eyebrow font-medium text-forest hover:text-forest-deep py-2 group-hover:underline min-h-[36px]"
-                >
-                  <span>
-                    {item.categoryType === 'product'
-                      ? 'Enquire Availability'
-                      : 'Consult for This Therapy'}
-                  </span>
-                  <FiArrowUpRight className="text-gold text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
-                </button>
               </div>
-
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Bottom Consultation Banner */}
         <div className="mt-14 p-6 sm:p-8 bg-pure-white border border-gold/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
           <div className="space-y-1 max-w-xl">
             <p className="font-serif text-lg sm:text-xl text-forest-deep font-medium">
-              Personalized Treatment Combinations
+              {t('showcase.personalizedTitle', 'Personalized Treatment Combinations')}
             </p>
             <p className="text-xs sm:text-sm text-charcoal-muted leading-relaxed">
-              Our healer evaluates your health background during an in-person consultation to recommend appropriate acupuncture, traditional therapies, and supportive aids.
+              {t('showcase.personalizedDesc', 'Our healer evaluates your health background during an in-person consultation to recommend appropriate acupuncture, traditional therapies, and supportive aids.')}
             </p>
           </div>
 
@@ -437,7 +461,7 @@ export default function TreatmentsAndProducts({ onSelectItem }) {
             href="#contact"
             className="inline-flex items-center justify-center gap-2 bg-forest hover:bg-forest-deep text-ivory text-xs uppercase tracking-eyebrow font-medium px-6 py-3.5 transition-all duration-300 min-h-[44px] whitespace-nowrap self-stretch md:self-auto shadow-sm"
           >
-            <span>Book Consultation</span>
+            <span>{t('showcase.bookConsultationCta', 'Book Consultation')}</span>
             <FiArrowUpRight className="text-gold text-sm" aria-hidden="true" />
           </a>
         </div>

@@ -1,8 +1,11 @@
 import React from 'react';
 import { FiPhone, FiArrowUpRight } from 'react-icons/fi';
 import heroBg from '../assets/editorial/hero-acupuncture.webp';
+import { useLanguage } from '../hooks/useLanguage';
 
 export default function Hero() {
+  const { t, isTamil } = useLanguage();
+
   return (
     <section
       id="hero"
@@ -32,18 +35,24 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2.5 mb-5 sm:mb-6">
             <span className="w-6 h-[1.5px] bg-gold" aria-hidden="true" />
             <p className="text-[11px] sm:text-xs uppercase tracking-editorial font-medium text-gold-light">
-              SRI RAMA ACUPUNCTURE CLINIC · CHINNAMANUR
+              {t('hero.eyebrow', 'ESTABLISHED FEBRUARY 2012 · CHINNAMANUR, THENI')}
             </p>
           </div>
 
           {/* Primary Heading */}
           <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-ivory font-medium leading-[1.15] tracking-tight mb-5 sm:mb-6">
-            Sri Rama Acupuncture Clinic
+            {isTamil ? (
+              <>
+                ஸ்ரீ ராமா <span className="text-gold-light">அக்குபஞ்சர் கிளினிக்</span>
+              </>
+            ) : (
+              'Sri Rama Acupuncture Clinic'
+            )}
           </h1>
 
           {/* Concise Subtitle */}
           <p className="text-base sm:text-xl text-ivory/85 font-normal leading-relaxed mb-8 sm:mb-10 max-w-xl">
-            Traditional acupuncture and therapy services in Chinnamanur, Theni.
+            {t('hero.subtitle', 'Restoring balance through authentic acupuncture, Varma therapy, Thokkanam, and holistic naturopathy.')}
           </p>
 
           {/* Action Buttons */}
@@ -52,17 +61,17 @@ export default function Hero() {
               href="#contact"
               className="inline-flex items-center justify-center gap-2.5 bg-gold hover:bg-gold-light text-forest-deep text-xs uppercase tracking-eyebrow font-semibold px-7 py-4 transition-all duration-300 shadow-md hover:shadow-lg min-h-[48px]"
             >
-              <span>Book an Appointment</span>
+              <span>{t('hero.bookAppointment', 'Book an Appointment')}</span>
               <FiArrowUpRight className="text-base" aria-hidden="true" />
             </a>
 
             <a
               href="tel:9942611444"
               className="inline-flex items-center justify-center gap-2.5 bg-forest-deep/60 hover:bg-forest-deep/80 text-ivory border border-ivory/30 hover:border-ivory/60 text-xs uppercase tracking-eyebrow font-medium px-6 py-4 backdrop-blur-sm transition-all duration-300 min-h-[48px]"
-              aria-label="Call clinic at 9942611444"
+              aria-label={t('hero.callDirectly', 'Direct Call')}
             >
               <FiPhone className="text-sm text-gold" aria-hidden="true" />
-              <span>Call the Clinic</span>
+              <span>{isTamil ? 'அழைக்க: 99426 11444' : 'Call: 99426 11444'}</span>
             </a>
           </div>
         </div>

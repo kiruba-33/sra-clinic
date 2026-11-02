@@ -9,6 +9,8 @@ import LocationMap from './components/LocationMap';
 import Gallery from './components/Gallery';
 import Footer from './components/Footer';
 import MobileBottomNav from './components/MobileBottomNav';
+import LanguageSwitcher from './components/LanguageSwitcher';
+import { LanguageProvider } from './context/LanguageContext';
 
 export default function App() {
   const [selectedProduct, setSelectedProduct] = useState('');
@@ -22,39 +24,44 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-ivory text-charcoal font-sans flex flex-col selection:bg-sage/30 selection:text-forest">
-      {/* Top Header Navigation (Desktop & Mobile) */}
-      <Navbar />
+    <LanguageProvider>
+      <div className="min-h-screen bg-ivory text-charcoal font-sans flex flex-col selection:bg-sage/30 selection:text-forest">
+        {/* Top Header Navigation (Desktop & Mobile) */}
+        <Navbar />
 
-      {/* Main Content Sections arranged in exact CEO-requested order */}
-      <main className="flex-grow">
-        {/* 1. Hero Section (with Background Image & Minimal Text) */}
-        <Hero />
+        {/* Main Content Sections arranged in exact CEO-requested order */}
+        <main className="flex-grow">
+          {/* 1. Hero Section (with Background Image & Minimal Text) */}
+          <Hero />
 
-        {/* 2. Renuka Ma'am Profile (Immediately after Hero) */}
-        <DoctorProfile />
+          {/* 2. Renuka Ma'am Profile (Immediately after Hero) */}
+          <DoctorProfile />
 
-        {/* 3. Treatments & Wellness Products (Unified Editorial Showcase) */}
-        <TreatmentsAndProducts onSelectItem={handleSelectProduct} />
+          {/* 3. Treatments & Wellness Products (Unified Editorial Showcase) */}
+          <TreatmentsAndProducts onSelectItem={handleSelectProduct} />
 
-        {/* 5. About the Clinic (Immediately after Products) */}
-        <About />
+          {/* 5. About the Clinic (Immediately after Products) */}
+          <About />
 
-        {/* 6. Testimonials / Genuine Google Reviews (Immediately after About) */}
-        <Testimonials />
+          {/* 6. Testimonials / Genuine Google Reviews (Immediately after About) */}
+          <Testimonials />
 
-        {/* 7. Google Business Profile and Map (Immediately after Testimonials and before Gallery) */}
-        <LocationMap />
+          {/* 7. Google Business Profile and Map (Immediately after Testimonials and before Gallery) */}
+          <LocationMap />
 
-        {/* 8. Gallery / Videos (Immediately after Location Map and before Footer) */}
-        <Gallery />
-      </main>
+          {/* 8. Gallery / Videos (Immediately after Location Map and before Footer) */}
+          <Gallery />
+        </main>
 
-      {/* 8. Footer (Final Section with Contact, Map, Direct Actions, & Bottom Nav Clearance) */}
-      <Footer prefilledSubject={selectedProduct} />
+        {/* 8. Footer (Final Section with Contact, Map, Direct Actions, & Bottom Nav Clearance) */}
+        <Footer prefilledSubject={selectedProduct} />
 
-      {/* Mobile Fixed Bottom Navigation Bar (Mobile Only with Safe Area Spacing) */}
-      <MobileBottomNav />
-    </div>
+        {/* Floating Language Switcher (Desktop bottom-right, Mobile above bottom nav) */}
+        <LanguageSwitcher />
+
+        {/* Mobile Fixed Bottom Navigation Bar (Mobile Only with Safe Area Spacing) */}
+        <MobileBottomNav />
+      </div>
+    </LanguageProvider>
   );
 }

@@ -1,27 +1,11 @@
 import React from 'react';
 import { FiArrowUpRight, FiPhone, FiAward } from 'react-icons/fi';
 import healerPhoto from '../assets/editorial/sra-healer.webp';
-
-/**
- * =========================================================================
- * HEALER PROFILE — RENUKA MA'AM (RENUGA RAMADASS)
- * Sri Rama Acupuncture Clinic
- * Confirmed Details:
- * Name: Renuka Ma'am (Renuga Ramadass)
- * Credentials: MD. (Acu), M.Sc. (Yoga), ACPH, DNYS.
- * Experience: 15 Years of Experience
- * Photograph: sra-healer.webp (authentic photograph ready for swap if updated)
- * =========================================================================
- */
-const HEALER_DETAILS = {
-  name: "Renuka Ramadass",
-  displayName: "Renuka Ma'am",
-  credentials: 'MD. (Acu), M.Sc. (Yoga), ACPH, DNYS.',
-  experience: '15 Years of Experience',
-  photoAlt: "Renuka Ma'am (Renuga Ramadass) — Healer at Sri Rama Acupuncture Clinic",
-};
+import { useLanguage } from '../hooks/useLanguage';
 
 export default function DoctorProfile() {
+  const { t, isTamil } = useLanguage();
+
   return (
     <section
       id="doctor"
@@ -37,31 +21,18 @@ export default function DoctorProfile() {
               {healerPhoto ? (
                 <img
                   src={healerPhoto}
-                  alt={HEALER_DETAILS.photoAlt}
+                  alt={isTamil ? "ரேணுகா ராமதாஸ் — ஸ்ரீ ராமா அக்குபஞ்சர் கிளினிக்" : "Renuga Ramadass — Healer at Sri Rama Acupuncture Clinic"}
                   className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                   width={1368}
                   height={912}
                 />
-              ) : (
-                /* Editorial Fallback Graphic if photo is temporarily omitted */
-                <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center bg-ivory">
-                  <span className="text-[11px] uppercase tracking-editorial text-gold font-medium block mb-2">
-                    Practitioner Portrait
-                  </span>
-                  <p className="font-serif text-xl text-forest-deep font-medium">
-                    {HEALER_DETAILS.name}
-                  </p>
-                  <p className="text-xs text-charcoal-muted mt-2">
-                    Sri Rama Acupuncture Clinic · Chinnamanur
-                  </p>
-                </div>
-              )}
+              ) : null}
 
               {/* In-Person Care Badge Overlay - High Contrast Solid Ivory */}
               <div className="absolute bottom-3 left-3 right-3 z-10 bg-[#F7F6F0] border border-[#B69A58] py-2.5 px-2.5 sm:px-4 text-center shadow-md">
                 <span className="text-[10px] sm:text-[11px] uppercase tracking-eyebrow text-[#214B38] font-bold block leading-snug">
-                  15 Years of Experience · In-Person Care
+                  {t('doctor.experienceBadge', '15 YEARS OF EXPERIENCE · IN-PERSON CARE')}
                 </span>
               </div>
             </div>
@@ -73,43 +44,43 @@ export default function DoctorProfile() {
             <div className="inline-flex items-center gap-2.5 mb-3 sm:mb-4">
               <span className="w-6 h-[1.5px] bg-gold" aria-hidden="true" />
               <p className="text-[11px] sm:text-xs uppercase tracking-editorial font-medium text-forest">
-                TRADITIONAL HEALING & WELLNESS
+                {t('doctor.eyebrow', 'TRADITIONAL PRACTITIONER')}
               </p>
             </div>
 
             {/* Section Title */}
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-forest-deep font-medium leading-[1.2] mb-5">
-              Meet Our Healer
+              {t('doctor.title', 'Meet Our Healer')}
             </h2>
 
             {/* Healer Name & Credentials */}
             <div className="mb-6 pb-6 border-b border-charcoal/10">
               <h3 className="font-serif text-2xl sm:text-3xl text-forest-deep font-medium mb-1 tracking-tight">
-                {HEALER_DETAILS.name}
+                {t('doctor.name', 'Renuga Ramadass')}
               </h3>
               <p className="text-xs uppercase tracking-editorial text-gold font-medium mb-3">
-                Renuka Ma'am · Classical Acupuncturist
+                {isTamil ? "ரேணுகா அம்மா · பாரம்பரிய அக்குபஞ்சர் மருத்துவர்" : "Renuka Ma'am · Classical Acupuncturist"}
               </p>
 
               {/* Credentials Line */}
               <p className="text-sm sm:text-base font-medium text-forest tracking-wide mb-3">
-                {HEALER_DETAILS.credentials}
+                {t('doctor.credentials', 'MD. (Acu), M.Sc. (Yoga), ACPH, DNYS.')}
               </p>
 
               {/* Experience Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sage/15 border border-forest/20 text-forest text-xs uppercase tracking-eyebrow font-semibold">
                 <FiAward className="text-gold text-sm" aria-hidden="true" />
-                <span>{HEALER_DETAILS.experience}</span>
+                <span>{isTamil ? '15 ஆண்டுகள் மருத்துவ அனுபவம்' : '15 Years of Experience'}</span>
               </div>
             </div>
 
             {/* Concise Description */}
             <div className="space-y-4 text-sm sm:text-base text-charcoal-soft font-normal leading-relaxed max-w-xl mb-8">
               <p>
-                With 15 years of dedicated clinical experience in traditional healthcare, Renuka Ma'am provides personalized acupuncture, yoga therapy, and natural healing treatments tailored to each individual at Sri Rama Acupuncture Clinic.
+                {t('doctor.bio1', 'Renuga Ramadass has dedicated over 15 years to continuous clinical practice at Sri Rama Acupuncture Clinic in Chinnamanur, Theni district.')}
               </p>
               <p>
-                Every consultation prioritizes classical point selection, gentle stimulation, and natural therapies designed to restore balance and relieve pain without synthetic medication.
+                {t('doctor.bio2', 'Grounded in classical acupuncture, Varma science, and traditional yoga therapy, her approach focuses on diagnosing individual bodily constitution and activating natural restorative energy without synthetic drugs.')}
               </p>
             </div>
 
@@ -119,7 +90,7 @@ export default function DoctorProfile() {
                 href="#contact"
                 className="inline-flex items-center gap-2 bg-forest hover:bg-forest-deep text-ivory text-xs uppercase tracking-eyebrow font-medium px-6 py-3.5 transition-all duration-300 min-h-[44px] shadow-sm hover:shadow-md"
               >
-                <span>Schedule Consultation</span>
+                <span>{t('doctor.scheduleCta', 'Schedule Consultation')}</span>
                 <FiArrowUpRight className="text-gold" aria-hidden="true" />
               </a>
 
@@ -128,7 +99,7 @@ export default function DoctorProfile() {
                 className="inline-flex items-center gap-2 text-xs uppercase tracking-eyebrow font-medium text-forest hover:text-forest-deep border border-forest/30 hover:border-forest px-5 py-3.5 transition-colors min-h-[44px]"
               >
                 <FiPhone className="text-xs text-gold" aria-hidden="true" />
-                <span>Call 99426 11444</span>
+                <span>{isTamil ? 'அழைக்க: 99426 11444' : 'Call 99426 11444'}</span>
               </a>
             </div>
           </div>

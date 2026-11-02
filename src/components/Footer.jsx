@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { FiPhone, FiMail, FiMapPin, FiArrowUp, FiArrowUpRight, FiCheck } from 'react-icons/fi';
 import sraLogo from '../assets/sra-logo.webp';
+import { useLanguage } from '../hooks/useLanguage';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
 export default function Footer({ prefilledSubject = '' }) {
+  const { t } = useLanguage();
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -28,24 +31,28 @@ export default function Footer({ prefilledSubject = '' }) {
   const mapsUrl = 'https://share.google/MF64RNzh7p8CPa7Xv';
 
   const navLinks = [
-    { label: 'Home', href: '#hero' },
-    { label: 'Healer Profile', href: '#doctor' },
-    { label: 'Treatments & Products', href: '#treatments' },
-    { label: 'About the Clinic', href: '#about' },
-    { label: 'Testimonials', href: '#testimonials' },
-    { label: 'Location & Map', href: '#location' },
-    { label: 'Gallery', href: '#gallery' },
+    { label: t('nav.home', 'Home'), href: '#hero' },
+    { label: t('nav.doctor', 'Healer Profile'), href: '#doctor' },
+    { label: t('nav.treatments', 'Treatments & Products'), href: '#treatments' },
+    { label: t('nav.about', 'About the Clinic'), href: '#about' },
+    { label: t('nav.testimonials', 'Testimonials'), href: '#testimonials' },
+    { label: t('nav.location', 'Location & Map'), href: '#location' },
+    { label: t('nav.gallery', 'Gallery'), href: '#gallery' },
   ];
 
   const validate = () => {
     const errs = {};
-    if (!formData.name.trim()) errs.name = 'Please provide your name.';
-    if (!formData.phone.trim()) {
-      errs.phone = 'Please provide your phone number.';
-    } else if (!/^[0-9+\s-]{8,15}$/.test(formData.phone.trim())) {
-      errs.phone = 'Please enter a valid phone number.';
+    if (!formData.name.trim()) {
+      errs.name = t('footer.errors.name', 'Please provide your name.');
     }
-    if (!formData.message.trim()) errs.message = 'Please provide a brief message.';
+    if (!formData.phone.trim()) {
+      errs.phone = t('footer.errors.phoneEmpty', 'Please provide your phone number.');
+    } else if (!/^[0-9+\s-]{8,15}$/.test(formData.phone.trim())) {
+      errs.phone = t('footer.errors.phoneInvalid', 'Please enter a valid phone number (8-15 digits).');
+    }
+    if (!formData.message.trim()) {
+      errs.message = t('footer.errors.message', 'Please provide a brief message.');
+    }
     return errs;
   };
 
@@ -91,11 +98,11 @@ export default function Footer({ prefilledSubject = '' }) {
           <div className="inline-flex items-center gap-2.5 mb-3.5">
             <span className="w-6 h-[1.5px] bg-gold" aria-hidden="true" />
             <p className="text-[11px] sm:text-xs uppercase tracking-editorial font-medium text-gold-light">
-              APPOINTMENTS & VISITING
+              {t('footer.eyebrow', 'APPOINTMENTS & VISITING')}
             </p>
           </div>
           <h2 className="font-serif text-2xl sm:text-4xl text-ivory font-medium leading-[1.2]">
-            Connect with Sri Rama Acupuncture Clinic.
+            {t('footer.title', 'Connect with Sri Rama Acupuncture Clinic.')}
           </h2>
         </div>
 
@@ -110,7 +117,7 @@ export default function Footer({ prefilledSubject = '' }) {
               <div className="w-12 h-12 rounded-full overflow-hidden border border-gold/60 flex-shrink-0 bg-ivory">
                 <img
                   src={sraLogo}
-                  alt="Sri Rama Acupuncture Clinic Emblem"
+                  alt={t('nav.brandTitle', 'Sri Rama Acupuncture Clinic')}
                   className="w-full h-full object-cover"
                   width="48"
                   height="48"
@@ -118,10 +125,10 @@ export default function Footer({ prefilledSubject = '' }) {
               </div>
               <div>
                 <h3 className="font-serif text-lg sm:text-xl text-ivory font-semibold tracking-tight">
-                  Sri Rama Acupuncture Clinic
+                  {t('nav.brandTitle', 'Sri Rama Acupuncture Clinic')}
                 </h3>
                 <p className="text-[10px] uppercase tracking-wider text-sage font-medium">
-                  Chinnamanur · Theni District
+                  {t('footer.tagline', 'Chinnamanur · Theni District')}
                 </p>
               </div>
             </div>
@@ -129,7 +136,7 @@ export default function Footer({ prefilledSubject = '' }) {
             {/* Direct Telephone */}
             <div className="pt-5 border-t border-ivory/15">
               <span className="text-[10px] uppercase tracking-editorial text-gold font-medium block mb-1">
-                Direct Telephone
+                {t('footer.phoneLabel', 'Direct Telephone')}
               </span>
               <a
                 href="tel:9942611444"
@@ -139,14 +146,14 @@ export default function Footer({ prefilledSubject = '' }) {
                 <span>99426 11444</span>
               </a>
               <p className="text-xs text-ivory/65 mt-0.5">
-                Click to call directly for consultation times and general inquiries.
+                {t('hero.consultationInfo', 'In-person consultations available Monday – Saturday in Chinnamanur.')}
               </p>
             </div>
 
             {/* Email Address */}
             <div className="pt-5 border-t border-ivory/15">
               <span className="text-[10px] uppercase tracking-editorial text-gold font-medium block mb-1">
-                Email Address
+                {t('footer.emailLabel', 'Direct Email')}
               </span>
               <a
                 href="mailto:renugaramdass@gmail.com"
@@ -160,14 +167,13 @@ export default function Footer({ prefilledSubject = '' }) {
             {/* Clinic Address & Map Link */}
             <div className="pt-5 border-t border-ivory/15">
               <span className="text-[10px] uppercase tracking-editorial text-gold font-medium block mb-1">
-                Clinic Location
+                {t('footer.addressLabel', 'Clinic Address')}
               </span>
               <div className="flex items-start gap-2.5 text-xs sm:text-sm text-ivory/80 leading-relaxed font-sans mb-4">
                 <FiMapPin className="text-gold mt-1 flex-shrink-0" aria-hidden="true" />
                 <address className="not-italic">
-                  43A, Agraharam Rd, Sri Rama Acupuncture Clinic<br />
-                  Chinnamanur – 625515<br />
-                  Theni district, Tamil Nadu
+                  {t('location.streetLine', '43A, Agraharam Rd, Chinnamanur,')}<br />
+                  {t('location.districtLine', 'Theni District, Tamil Nadu – 625515')}
                 </address>
               </div>
 
@@ -178,7 +184,7 @@ export default function Footer({ prefilledSubject = '' }) {
                 className="inline-flex items-center gap-2 bg-forest-light hover:bg-forest text-ivory text-xs uppercase tracking-eyebrow font-medium px-4 py-2.5 border border-gold/40 transition-colors min-h-[44px]"
               >
                 <FiMapPin className="text-gold text-xs" aria-hidden="true" />
-                <span>Get Directions on Google Maps</span>
+                <span>{t('location.viewMapCta', 'Get Directions on Google Maps')}</span>
                 <FiArrowUpRight className="text-xs text-gold" aria-hidden="true" />
               </a>
             </div>
@@ -188,10 +194,10 @@ export default function Footer({ prefilledSubject = '' }) {
           {/* Right Column: Compact Consultation Form (7 columns) */}
           <div className="lg:col-span-7 bg-forest-deep/60 border border-ivory/20 p-6 sm:p-8 backdrop-blur-sm min-w-0">
             <h3 className="font-serif text-lg sm:text-xl text-ivory font-medium mb-1.5">
-              Request a Consultation
+              {t('footer.formTitle', 'Consultation & Product Enquiry')}
             </h3>
             <p className="text-xs text-ivory/70 mb-6">
-              Leave your details below. For immediate assistance, direct calling at 99426 11444 is recommended.
+              {t('location.subtitle', 'Leave your details below. For immediate assistance, direct calling at 99426 11444 is recommended.')}
             </p>
 
             {submitted ? (
@@ -200,10 +206,10 @@ export default function Footer({ prefilledSubject = '' }) {
                   <FiCheck aria-hidden="true" />
                 </div>
                 <h4 className="font-serif text-lg text-ivory font-medium">
-                  Enquiry Registered
+                  {t('footer.successTitle', 'Enquiry Received')}
                 </h4>
                 <p className="text-xs text-ivory/80 max-w-sm mx-auto leading-relaxed">
-                  Thank you. To speak directly with the clinic right now, dial directly or send your message via WhatsApp:
+                  {t('footer.successDesc', 'Thank you. Your consultation request has been received. We will contact you shortly.')}
                 </p>
                 <div className="pt-2 flex flex-col sm:flex-row justify-center gap-3">
                   <a
@@ -211,7 +217,7 @@ export default function Footer({ prefilledSubject = '' }) {
                     className="inline-flex items-center justify-center gap-2 bg-gold text-forest-deep text-xs uppercase tracking-eyebrow font-semibold px-5 py-3 transition-colors min-h-[44px]"
                   >
                     <FiPhone aria-hidden="true" />
-                    <span>Call 99426 11444</span>
+                    <span>{t('location.callDirectly', 'Call 99426 11444')}</span>
                   </a>
                   <a
                     href={whatsappUrl}
@@ -219,7 +225,7 @@ export default function Footer({ prefilledSubject = '' }) {
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white text-xs uppercase tracking-eyebrow font-medium px-5 py-3 transition-opacity hover:opacity-90 min-h-[44px]"
                   >
-                    <span>Send via WhatsApp</span>
+                    <span>{t('footer.whatsappBtn', 'Message Directly on WhatsApp')}</span>
                     <FiArrowUpRight aria-hidden="true" />
                   </a>
                 </div>
@@ -229,7 +235,7 @@ export default function Footer({ prefilledSubject = '' }) {
                     onClick={resetForm}
                     className="text-xs text-ivory/70 underline hover:text-gold py-1 min-h-[36px]"
                   >
-                    Submit another enquiry
+                    {t('footer.sendAnother', 'Send another message')}
                   </button>
                 </div>
               </div>
@@ -241,7 +247,7 @@ export default function Footer({ prefilledSubject = '' }) {
                       htmlFor="contactName"
                       className="block text-[11px] uppercase tracking-eyebrow text-gold-light mb-1"
                     >
-                      Your Name <span className="text-gold">*</span>
+                      {t('footer.nameLabel', 'Your Full Name')} <span className="text-gold">*</span>
                     </label>
                     <input
                       type="text"
@@ -249,7 +255,7 @@ export default function Footer({ prefilledSubject = '' }) {
                       name="name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="e.g. S. Ramanathan"
+                      placeholder={t('footer.namePlaceholder', 'e.g. Meenakshi Sundaram')}
                       className="w-full px-3.5 py-2.5 bg-ivory/10 border border-ivory/25 text-sm text-ivory placeholder-ivory/40 focus:border-gold focus:outline-none"
                       required
                     />
@@ -263,7 +269,7 @@ export default function Footer({ prefilledSubject = '' }) {
                       htmlFor="contactPhone"
                       className="block text-[11px] uppercase tracking-eyebrow text-gold-light mb-1"
                     >
-                      Phone Number <span className="text-gold">*</span>
+                      {t('footer.phoneInputLabel', 'Mobile Phone Number')} <span className="text-gold">*</span>
                     </label>
                     <input
                       type="tel"
@@ -271,7 +277,7 @@ export default function Footer({ prefilledSubject = '' }) {
                       name="phone"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="e.g. 9942611444"
+                      placeholder={t('footer.phonePlaceholder', '+91 98765 43210')}
                       className="w-full px-3.5 py-2.5 bg-ivory/10 border border-ivory/25 text-sm text-ivory placeholder-ivory/40 focus:border-gold focus:outline-none"
                       required
                     />
@@ -286,7 +292,7 @@ export default function Footer({ prefilledSubject = '' }) {
                     htmlFor="contactInterest"
                     className="block text-[11px] uppercase tracking-eyebrow text-gold-light mb-1"
                   >
-                    Therapy / Concern Area
+                    {t('footer.interestLabel', 'Therapy or Product of Interest')}
                   </label>
                   <select
                     id="contactInterest"
@@ -295,14 +301,30 @@ export default function Footer({ prefilledSubject = '' }) {
                     onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
                     className="w-full px-3.5 py-2.5 bg-forest-deep border border-ivory/25 text-sm text-ivory focus:border-gold focus:outline-none"
                   >
-                    <option value="General Traditional Consultation">General Consultation</option>
-                    <option value="Varicose Veins">Varicose Vein Concerns</option>
-                    <option value="Sciatic Nerve">Sciatic Nerve Concerns</option>
-                    <option value="Insomnia & Sleep">Insomnia & Sleep Concerns</option>
-                    <option value="Varma Treatment">Classical Varma Treatment</option>
-                    <option value="Thokkanam Bodywork">Thokkanam Bodywork</option>
-                    <option value="Magnetic Therapy">Magnetic Therapy</option>
-                    <option value="Wellness Products">Wellness Products Inquiry</option>
+                    <option value="General Traditional Consultation">
+                      {t('nav.bookConsultation', 'General Consultation')}
+                    </option>
+                    <option value="Varicose Veins">
+                      {t('showcase.concern1Title', 'Varicose Vein Relief')}
+                    </option>
+                    <option value="Sciatic Nerve">
+                      {t('showcase.concern2Title', 'Sciatic Nerve Pathway Relief')}
+                    </option>
+                    <option value="Insomnia & Sleep">
+                      {t('showcase.concern3Title', 'Insomnia & Sleep Balance')}
+                    </option>
+                    <option value="Varma Treatment">
+                      {t('showcase.items.varma-therapy.name', 'Varmam (Varma) Therapy')}
+                    </option>
+                    <option value="Thokkanam Bodywork">
+                      {t('showcase.items.thokkanam-treatment.name', 'Thokkanam Treatment')}
+                    </option>
+                    <option value="Magnetic Therapy">
+                      {t('showcase.items.magnetic-therapy.name', 'Magnetic Therapy')}
+                    </option>
+                    <option value="Wellness Products">
+                      {t('showcase.filterProducts', 'Products')}
+                    </option>
                   </select>
                 </div>
 
@@ -311,7 +333,7 @@ export default function Footer({ prefilledSubject = '' }) {
                     htmlFor="contactMessage"
                     className="block text-[11px] uppercase tracking-eyebrow text-gold-light mb-1"
                   >
-                    Brief Message <span className="text-gold">*</span>
+                    {t('footer.messageLabel', 'Message or Specific Health Concern')} <span className="text-gold">*</span>
                   </label>
                   <textarea
                     id="contactMessage"
@@ -319,7 +341,7 @@ export default function Footer({ prefilledSubject = '' }) {
                     rows={3}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Briefly describe your symptoms or preferred consultation time..."
+                    placeholder={t('footer.messagePlaceholder', 'Please briefly describe your health concern or product enquiry...')}
                     className="w-full px-3.5 py-2.5 bg-ivory/10 border border-ivory/25 text-sm text-ivory placeholder-ivory/40 focus:border-gold focus:outline-none"
                     required
                   />
@@ -332,7 +354,7 @@ export default function Footer({ prefilledSubject = '' }) {
                   type="submit"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-light text-forest-deep text-xs uppercase tracking-eyebrow font-semibold px-6 py-3.5 transition-colors min-h-[44px]"
                 >
-                  <span>Submit Consultation Request</span>
+                  <span>{t('footer.submitBtn', 'Submit Consultation Request')}</span>
                   <FiArrowUpRight aria-hidden="true" />
                 </button>
               </form>
@@ -346,7 +368,7 @@ export default function Footer({ prefilledSubject = '' }) {
         <div className="py-8 border-b border-ivory/10">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <span className="text-xs uppercase tracking-editorial text-gold font-medium">
-              Navigation
+              {t('footer.navHeader', 'Navigation')}
             </span>
             <nav className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-ivory/75">
               {navLinks.map((link) => (
@@ -366,10 +388,10 @@ export default function Footer({ prefilledSubject = '' }) {
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ivory/50">
           <div className="text-center sm:text-left space-y-1">
             <p>
-              © {CURRENT_YEAR} Sri Rama Acupuncture Clinic. All rights reserved. 43A, Agraharam Rd, Chinnamanur – 625515.
+              © {CURRENT_YEAR} {t('footer.copyright', 'Sri Rama Acupuncture Clinic. All rights reserved. 43A, Agraharam Rd, Chinnamanur – 625515.')}
             </p>
             <p className="text-[11px] text-ivory/45">
-              Developed by{' '}
+              {t('footer.developedBy', 'Developed by')}{' '}
               <a
                 href="https://navipromotions.in/index.html"
                 target="_blank"
@@ -382,14 +404,14 @@ export default function Footer({ prefilledSubject = '' }) {
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="text-ivory/40">Established 5 Feb 2012</span>
+            <span className="text-ivory/40">{t('footer.establishedDate', 'Established 5 Feb 2012')}</span>
             <button
               type="button"
               onClick={scrollToTop}
               className="inline-flex items-center gap-1.5 text-ivory/70 hover:text-gold transition-colors p-2 min-h-[44px]"
               aria-label="Back to top of page"
             >
-              <span>Back to top</span>
+              <span>{t('footer.backToTop', 'Back to top')}</span>
               <FiArrowUp className="text-xs" aria-hidden="true" />
             </button>
           </div>

@@ -11,25 +11,27 @@ import {
   FiMapPin,
   FiX,
 } from 'react-icons/fi';
+import { useLanguage } from '../hooks/useLanguage';
 
 export default function MobileBottomNav() {
+  const { t } = useLanguage();
   const [activeSection, setActiveSection] = useState('hero');
   const [moreMenuOpen, setMoreMenuOpen] = useState(false);
 
   // Primary bottom navigation items
   const primaryNavItems = [
-    { id: 'hero', label: 'Home', href: '#hero', icon: FiHome },
-    { id: 'doctor', label: 'Healer', href: '#doctor', icon: FiUser },
-    { id: 'treatments', label: 'Treatments', href: '#treatments', icon: FiActivity },
-    { id: 'about', label: 'About', href: '#about', icon: FiInfo },
+    { id: 'hero', label: t('mobileNav.home', 'Home'), href: '#hero', icon: FiHome },
+    { id: 'doctor', label: t('mobileNav.doctor', 'Healer'), href: '#doctor', icon: FiUser },
+    { id: 'treatments', label: t('mobileNav.treatments', 'Treatments'), href: '#treatments', icon: FiActivity },
+    { id: 'about', label: t('mobileNav.about', 'About'), href: '#about', icon: FiInfo },
   ];
 
   // Secondary items shown inside the "More" compact drawer
   const moreNavItems = [
-    { id: 'testimonials', label: 'Reviews', href: '#testimonials', icon: FiMessageSquare },
-    { id: 'location', label: 'Map & Location', href: '#location', icon: FiMapPin },
-    { id: 'gallery', label: 'Gallery', href: '#gallery', icon: FiImage },
-    { id: 'contact', label: 'Book Visit', href: '#contact', icon: FiPhone },
+    { id: 'testimonials', label: t('mobileNav.reviews', 'Reviews'), href: '#testimonials', icon: FiMessageSquare },
+    { id: 'location', label: t('mobileNav.location', 'Map & Location'), href: '#location', icon: FiMapPin },
+    { id: 'gallery', label: t('mobileNav.gallery', 'Gallery'), href: '#gallery', icon: FiImage },
+    { id: 'contact', label: t('mobileNav.bookVisit', 'Book Visit'), href: '#contact', icon: FiPhone },
   ];
 
   // IntersectionObserver to determine active section on scroll
@@ -99,19 +101,19 @@ export default function MobileBottomNav() {
           id="mobile-more-menu"
           role="dialog"
           aria-modal="true"
-          aria-label="Additional Navigation Options"
+          aria-label={t('mobileNav.moreSectionsTitle', 'Additional Navigation Options')}
           className="fixed bottom-[4.25rem] left-3 right-3 z-50 lg:hidden bg-ivory border border-charcoal/15 shadow-xl rounded-none p-4 transition-all duration-200 ease-out"
           style={{ paddingBottom: 'calc(1rem + env(safe-area-inset-bottom, 0px))' }}
         >
           <div className="flex items-center justify-between pb-3 mb-2 border-b border-charcoal/10">
             <span className="text-[11px] uppercase tracking-editorial text-forest font-semibold">
-              More Sections
+              {t('mobileNav.moreSectionsTitle', 'More Sections')}
             </span>
             <button
               type="button"
               onClick={() => setMoreMenuOpen(false)}
               className="p-1 text-charcoal hover:text-forest min-h-[36px] min-w-[36px] flex items-center justify-center"
-              aria-label="Close menu"
+              aria-label={t('mobileNav.closeMenu', 'Close menu')}
             >
               <FiX className="w-5 h-5" aria-hidden="true" />
             </button>
@@ -191,7 +193,7 @@ export default function MobileBottomNav() {
             }`}
             aria-expanded={moreMenuOpen}
             aria-controls="mobile-more-menu"
-            aria-label="More navigation options"
+            aria-label={t('mobileNav.more', 'More')}
           >
             <div className="relative">
               <FiMoreHorizontal
@@ -203,7 +205,7 @@ export default function MobileBottomNav() {
               )}
             </div>
             <span className="text-[10px] tracking-wide mt-1 leading-none">
-              More
+              {t('mobileNav.more', 'More')}
             </span>
           </button>
         </div>

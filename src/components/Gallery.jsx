@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiVideo, FiArrowUpRight } from 'react-icons/fi';
+import { useLanguage } from '../hooks/useLanguage';
 
 import heroImg from '../assets/editorial/hero-acupuncture.webp';
 import clinicImg from '../assets/editorial/clinic-therapy.webp';
@@ -14,49 +15,44 @@ import kitImg from '../assets/products/acupressure-kit.webp';
  * or therapy video files are provided by the client, add their paths below.
  * =========================================================================
  */
-const CLINIC_VIDEOS = [
-  // Example when genuine video is supplied:
-  // {
-  //   title: "Clinic Consultation & Setting Walkthrough",
-  //   src: "/videos/clinic-tour.mp4",
-  //   description: "A calm look inside our Agraharam clinic in Chinnamanur.",
-  // }
-];
+const CLINIC_VIDEOS = [];
 
 export default function Gallery() {
+  const { t } = useLanguage();
+
   const galleryItems = [
     {
       src: heroImg,
-      alt: 'Classical acupuncture needles and fresh herbal therapy setting',
-      title: 'Therapeutic Needles & Herbs',
+      alt: t('gallery.item1Alt', 'Classical acupuncture needles and fresh herbal therapy setting'),
+      title: t('gallery.item1Title', 'Therapeutic Needles & Herbs'),
       span: 'md:col-span-8',
       aspect: 'aspect-[16/10]',
     },
     {
       src: clinicImg,
-      alt: 'Traditional herbal extracts and botanical wellness preparations',
-      title: 'Botanical Therapy Setting',
+      alt: t('gallery.item2Alt', 'Traditional herbal extracts and botanical wellness preparations'),
+      title: t('gallery.item2Title', 'Botanical Therapy Setting'),
       span: 'md:col-span-4',
       aspect: 'aspect-[4/5]',
     },
     {
       src: careImg,
-      alt: 'Therapeutic stones and peaceful recovery space',
-      title: 'Treatment Room Atmosphere',
+      alt: t('gallery.item3Alt', 'Therapeutic stones and peaceful recovery space'),
+      title: t('gallery.item3Title', 'Treatment Room Atmosphere'),
       span: 'md:col-span-4',
       aspect: 'aspect-[4/5]',
     },
     {
       src: chairImg,
-      alt: 'Full body relaxation massager station inside the clinic',
-      title: 'In-Clinic Relaxation Equipment',
+      alt: t('gallery.item4Alt', 'Full body relaxation massager station inside the clinic'),
+      title: t('gallery.item4Title', 'In-Clinic Relaxation Equipment'),
       span: 'md:col-span-4',
       aspect: 'aspect-[4/5]',
     },
     {
       src: kitImg,
-      alt: 'Acupressure therapy accessories and point reflexology tools',
-      title: 'Acupressure & Point Aids',
+      alt: t('gallery.item5Alt', 'Acupressure therapy accessories and point reflexology tools'),
+      title: t('gallery.item5Title', 'Acupressure & Point Aids'),
       span: 'md:col-span-4',
       aspect: 'aspect-[4/5]',
     },
@@ -76,16 +72,16 @@ export default function Gallery() {
             <div className="inline-flex items-center gap-2.5 mb-3.5">
               <span className="w-6 h-[1.5px] bg-gold" aria-hidden="true" />
               <p className="text-[11px] sm:text-xs uppercase tracking-editorial font-medium text-forest">
-                CLINIC ATMOSPHERE
+                {t('gallery.eyebrow', 'CLINIC ATMOSPHERE')}
               </p>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-forest-deep font-medium leading-[1.25]">
-              Gallery
+              {t('gallery.title', 'Gallery')}
             </h2>
           </div>
 
           <p className="text-xs text-charcoal-muted max-w-sm leading-relaxed border-l border-gold/40 pl-3.5 font-sans">
-            Photographs of Sri Rama Acupuncture Clinic, therapy equipment, and traditional botanical accessories.
+            {t('gallery.subtitle', 'Photographs of Sri Rama Acupuncture Clinic, therapy equipment, and traditional botanical accessories.')}
           </p>
         </div>
 
@@ -109,7 +105,7 @@ export default function Gallery() {
                   {item.title}
                 </span>
                 <span className="text-[10px] uppercase tracking-eyebrow text-charcoal-muted">
-                  Sri Rama Clinic
+                  {t('gallery.tag', 'Sri Rama Clinic')}
                 </span>
               </div>
             </div>
@@ -148,10 +144,10 @@ export default function Gallery() {
               </div>
               <div>
                 <p className="font-serif text-sm sm:text-base text-forest-deep font-medium">
-                  Clinic Walkthrough & Video Demonstrations
+                  {t('gallery.videoWalkthroughTitle', 'Clinic Walkthrough & Video Demonstrations')}
                 </p>
                 <p className="text-xs text-charcoal-muted">
-                  Authentic video tours and demonstration materials will be published here upon client delivery.
+                  {t('gallery.videoWalkthroughDesc', 'Authentic video tours and demonstration materials will be published here upon client delivery.')}
                 </p>
               </div>
             </div>
@@ -160,7 +156,7 @@ export default function Gallery() {
               href="#contact"
               className="inline-flex items-center gap-1.5 text-xs uppercase tracking-eyebrow font-medium text-forest hover:text-forest-deep whitespace-nowrap"
             >
-              <span>Arrange an in-person visit</span>
+              <span>{t('gallery.arrangeVisitCta', 'Arrange an in-person visit')}</span>
               <FiArrowUpRight className="text-gold" aria-hidden="true" />
             </a>
           </div>

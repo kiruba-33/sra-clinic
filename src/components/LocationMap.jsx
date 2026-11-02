@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiMapPin, FiArrowUpRight, FiStar, FiPhone, FiClock } from 'react-icons/fi';
+import { useLanguage } from '../hooks/useLanguage';
 
 /**
  * =========================================================================
@@ -16,6 +17,8 @@ const MAPS_EMBED_URL =
   'https://maps.google.com/maps?q=Sri+Rama+Acupuncture+Clinic,+43A+Agraharam+Rd,+Chinnamanur,+Tamil+Nadu+625515&z=16&output=embed';
 
 export default function LocationMap() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="location"
@@ -29,14 +32,14 @@ export default function LocationMap() {
           <div className="inline-flex items-center gap-2.5 mb-3.5">
             <span className="w-6 h-[1.5px] bg-forest" aria-hidden="true" />
             <p className="text-[11px] sm:text-xs uppercase tracking-editorial font-medium text-forest">
-              CLINIC LOCATION & VISITATION
+              {t('location.eyebrow', 'CLINIC LOCATION & VISITATION')}
             </p>
           </div>
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-forest-deep font-medium leading-[1.25] mb-4">
-            Find Us on Google Maps
+            {t('location.title', 'Find Us on Google Maps')}
           </h2>
           <p className="text-sm sm:text-base text-charcoal-muted leading-relaxed">
-            Conveniently situated on Agraharam Road in Chinnamanur, Theni district. Easy road connectivity for visitors across Tamil Nadu.
+            {t('location.subtitle', 'Conveniently situated on Agraharam Road in Chinnamanur, Theni district. Easy road connectivity for visitors across Tamil Nadu.')}
           </p>
         </div>
 
@@ -49,14 +52,14 @@ export default function LocationMap() {
               {/* Clinic Branding */}
               <div className="flex items-center gap-2 text-forest text-xs uppercase tracking-eyebrow font-semibold mb-3">
                 <FiMapPin className="text-gold text-base" aria-hidden="true" />
-                <span>Verified Google Business Profile</span>
+                <span>{t('location.verifiedBadge', 'Verified Google Business Profile')}</span>
               </div>
 
               <h3 className="font-serif text-2xl text-forest-deep font-medium mb-3">
-                Sri Rama Acupuncture Clinic
+                {t('nav.brandTitle', 'Sri Rama Acupuncture Clinic')}
               </h3>
               <p className="text-xs text-charcoal-muted italic mb-6">
-                Official listing: Sri Rama Chinese Acupunture Clinic, Naturopathy, Pranic Healing and House of aloe
+                {t('location.officialListing', 'Official listing: Sri Rama Chinese Acupunture Clinic, Naturopathy, Pranic Healing and House of aloe')}
               </p>
 
               {/* Address Block */}
@@ -64,13 +67,13 @@ export default function LocationMap() {
                 <div className="flex items-start gap-3">
                   <FiMapPin className="text-gold text-lg flex-shrink-0 mt-0.5" aria-hidden="true" />
                   <div>
-                    <p className="font-semibold text-forest-deep">Clinic Address</p>
+                    <p className="font-semibold text-forest-deep">{t('location.addressHeader', 'Clinic Address')}</p>
                     <p className="text-charcoal-soft leading-relaxed mt-0.5">
-                      43A, Agraharam Rd, Chinnamanur,<br />
-                      Theni District, Tamil Nadu – 625515
+                      {t('location.streetLine', '43A, Agraharam Rd, Chinnamanur,')}<br />
+                      {t('location.districtLine', 'Theni District, Tamil Nadu – 625515')}
                     </p>
                     <p className="text-xs text-charcoal-muted mt-1">
-                      Landmark: Opposite to Agraharam, Chinnamanur
+                      {t('location.landmark', 'Landmark: Opposite to Agraharam, Chinnamanur')}
                     </p>
                   </div>
                 </div>
@@ -78,9 +81,9 @@ export default function LocationMap() {
                 <div className="flex items-start gap-3">
                   <FiClock className="text-gold text-lg flex-shrink-0 mt-0.5" aria-hidden="true" />
                   <div>
-                    <p className="font-semibold text-forest-deep">Consultation Hours</p>
+                    <p className="font-semibold text-forest-deep">{t('location.hoursHeader', 'Consultation Hours')}</p>
                     <p className="text-charcoal-soft leading-relaxed mt-0.5">
-                      Monday – Sunday · 9:00 AM – 8:00 PM
+                      {t('location.hoursLine', 'Monday – Sunday · 9:00 AM – 8:00 PM')}
                     </p>
                   </div>
                 </div>
@@ -88,9 +91,9 @@ export default function LocationMap() {
                 <div className="flex items-start gap-3">
                   <FiStar className="text-gold text-lg flex-shrink-0 mt-0.5" aria-hidden="true" />
                   <div>
-                    <p className="font-semibold text-forest-deep">Google Rating</p>
+                    <p className="font-semibold text-forest-deep">{t('location.ratingHeader', 'Google Rating')}</p>
                     <p className="text-charcoal-soft leading-relaxed mt-0.5">
-                      5.0 ★★★★★ based on 70+ authentic reviews
+                      {t('location.ratingLine', '5.0 ★★★★★ based on 70+ authentic reviews')}
                     </p>
                   </div>
                 </div>
@@ -105,7 +108,7 @@ export default function LocationMap() {
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 bg-forest hover:bg-forest-deep text-ivory text-xs uppercase tracking-eyebrow font-medium px-6 py-3.5 transition-all duration-300 min-h-[44px] shadow-sm hover:shadow-md"
               >
-                <span>View on Google Maps</span>
+                <span>{t('location.viewMapCta', 'View on Google Maps')}</span>
                 <FiArrowUpRight className="text-gold text-sm" aria-hidden="true" />
               </a>
 
@@ -116,7 +119,7 @@ export default function LocationMap() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs text-forest hover:text-forest-deep font-medium underline underline-offset-4"
                 >
-                  <span>Read Original Google Reviews</span>
+                  <span>{t('location.readOriginalReviews', 'Read Original Google Reviews')}</span>
                   <FiArrowUpRight className="text-[11px]" aria-hidden="true" />
                 </a>
 
@@ -125,7 +128,7 @@ export default function LocationMap() {
                   className="inline-flex items-center gap-1.5 text-xs text-charcoal-muted hover:text-forest font-medium"
                 >
                   <FiPhone className="text-gold text-xs" aria-hidden="true" />
-                  <span>Call 99426 11444</span>
+                  <span>{t('location.callDirectly', 'Call 99426 11444')}</span>
                 </a>
               </div>
             </div>
@@ -151,7 +154,7 @@ export default function LocationMap() {
               <div className="absolute top-3 left-3 bg-pure-white/95 backdrop-blur-sm border border-gold/30 px-3 py-1.5 shadow-sm pointer-events-none hidden sm:flex items-center gap-2">
                 <FiMapPin className="text-forest text-xs" aria-hidden="true" />
                 <span className="text-[11px] font-semibold text-forest-deep">
-                  Sri Rama Acupuncture Clinic · Chinnamanur
+                  {t('nav.brandTitle', 'Sri Rama Acupuncture Clinic')} · {t('location.districtLine', 'Chinnamanur')}
                 </span>
               </div>
             </div>

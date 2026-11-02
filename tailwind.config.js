@@ -34,8 +34,9 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['"Lora"', 'Georgia', '"Times New Roman"', 'serif'],
-        sans: ['"DM Sans"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+        serif: ['"Lora"', '"Noto Sans Tamil"', 'Georgia', '"Times New Roman"', 'serif'],
+        sans: ['"DM Sans"', '"Noto Sans Tamil"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+        tamil: ['"Noto Sans Tamil"', 'sans-serif'],
       },
       letterSpacing: {
         editorial: '0.18em',
